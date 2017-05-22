@@ -35,6 +35,7 @@ namespace RFIDIntegratedApplication
         UpdateEpcForm  _updateEpcForm;
         SearchRegionForm _searchRegionForm;
         SimulationForm _simulationForm;
+        VitalSignsForm _vitalSignsForm;
 
         LinearGuideForm _linearGuideForm;
         SortingBooksForm _sortingBooksForm;
@@ -66,6 +67,7 @@ namespace RFIDIntegratedApplication
             _tagTableForm = new TagTableForm();
             _rssiGraphForm = new RSSIGraphFrom();
             _phaseGraphForm = new PhaseGraphForm();
+            _vitalSignsForm = new VitalSignsForm();
 
             _sortingBooksForm = new SortingBooksForm();
             _linearGuideForm = new LinearGuideForm();
@@ -124,6 +126,11 @@ namespace RFIDIntegratedApplication
                         return _sortingBooksForm;
                     }
 
+                    if (persistString == typeof(VitalSignsForm).ToString())
+                    {
+                        return _vitalSignsForm;
+                    }
+
                     // Undefined forms
                     return null;
                 });
@@ -134,6 +141,9 @@ namespace RFIDIntegratedApplication
 
                 if (_tagTableForm.DockState != DockState.Unknown && _tagTableForm.DockState != DockState.Hidden)
                     AppConfig.tagTableDockState = _tagTableForm.DockState;
+
+                if (_vitalSignsForm.DockState != DockState.Unknown && _vitalSignsForm.DockState != DockState.Hidden)
+                    AppConfig.vitalSignsDockState = _vitalSignsForm.DockState;
 
                 if (_rssiGraphForm.DockState != DockState.Unknown && _rssiGraphForm.DockState != DockState.Hidden)
                     AppConfig.rssiGraphDockState = _rssiGraphForm.DockState;

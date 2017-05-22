@@ -41,7 +41,7 @@
     <OutputPath>bin\x64\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
@@ -56,6 +56,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="LLRP, Version=10.22.0.30, Culture=neutral, PublicKeyToken=450cec67a1cde3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -86,6 +87,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AGauge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="AGauge.Designer.cs">
+      <DependentUpon>AGauge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Analysis\AppMath.cs" />
     <Compile Include="Analysis\CurveFit.cs" />
     <Compile Include="Analysis\HeatMap.cs" />
@@ -96,6 +103,12 @@
     <Compile Include="Analysis\SyntheticApertureRadar.cs" />
     <Compile Include="Analysis\TagPos.cs" />
     <Compile Include="CurrentMillis.cs" />
+    <Compile Include="VitalSignsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VitalSignsForm.designer.cs">
+      <DependentUpon>VitalSignsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\LinearGuideForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +139,7 @@
     <Compile Include="Forms\UpdateEpcForm.Designer.cs">
       <DependentUpon>UpdateEpcForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IAGauge.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +207,9 @@
     <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Utility\CSVFileHelper.cs" />
     <Compile Include="Utility\IFormable.cs" />
+    <EmbeddedResource Include="VitalSignsForm.resx">
+      <DependentUpon>VitalSignsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\LinearGuideForm.resx">
       <DependentUpon>LinearGuideForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -74,3 +74,19 @@ F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDTest\obj\x64\Debug\R
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.csproj.GenerateResource.Cache
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.exe
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.pdb
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\RFIDTest.exe.config
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\RFIDTest.exe
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\RFIDTest.pdb
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2003.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2012.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2012Light.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2013.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2013Blue.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.ThemeVS2015.dll
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.csprojResolveAssemblyReference.cache
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.Form1.resources
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.Properties.Resources.resources
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.csproj.GenerateResource.Cache
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.exe
+E:\交大\RFID5313\RFIDApplication\RFIDTest\obj\x64\Debug\RFIDTest.pdb

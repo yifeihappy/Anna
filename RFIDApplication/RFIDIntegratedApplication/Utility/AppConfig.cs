@@ -14,6 +14,7 @@ namespace RFIDIntegratedApplication.Utility
         public static DockState rssiGraphDockState = DockState.Document;
         public static DockState phaseGraphDockState = DockState.Document;
         public static DockState holographicsDockState = DockState.Document;
+        public static DockState vitalSignsDockState = DockState.Document;
 
         public static DockState searchRegionDockState = DockState.DockRight;
         public static DockState updateEpcDockState = DockState.DockRight;

@@ -217,3 +217,26 @@ F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDIntegratedApplicatio
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csproj.GenerateResource.Cache
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csprojResolveAssemblyReference.cache
 F:\rfid实验室\丁峰\cs linear guide\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Forms.UpdateEpcForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe.config
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.pdb
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\LLRP.dll
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\LLRP.Impinj.dll
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\WeifenLuo.WinFormsUI.Docking.dll
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.HolographicsForms.LinearGuideForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.HolographicsForms.SearchRegionForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.HolographicsForms.SimulationForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.HolographicsForms.SortingBooksForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Forms.UpdateEpcForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.MainForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.PhaseGraphForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Properties.Resources.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.ReaderSettingsForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.RSSIGraphFrom.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.SearchReaderIPForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.TagTableForm.resources
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csproj.GenerateResource.Cache
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.exe
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.pdb
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csprojResolveAssemblyReference.cache
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.VitalSignsForm.resources
