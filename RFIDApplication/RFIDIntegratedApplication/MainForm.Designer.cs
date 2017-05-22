@@ -31,18 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.dockPanelMain = new WeifenLuo.WinFormsUI.Docking.DockPanel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsslRunTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslblCounter = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslblStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tssbtnSave = new System.Windows.Forms.ToolStripSplitButton();
             this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnStart = new System.Windows.Forms.ToolStripButton();
             this.tsbtnStop = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tssbtnAddWindow = new System.Windows.Forms.ToolStripSplitButton();
             this.tsmiUpdateEpc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiReaderSettings = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +48,11 @@
             this.tsmiHolographics = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDemoSortingBooks = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiDemoTrackingObjects = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsslRunTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslblCounter = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.vitalSignsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,64 +82,6 @@
             this.toolStrip.TabIndex = 5;
             this.toolStrip.Text = "Tool Strip";
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
-            this.toolStripSeparator2.Click += new System.EventHandler(this.toolStripSeparator2_Click);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsslRunTime,
-            this.tsslblCounter,
-            this.tsslblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 736);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.statusStrip1.Size = new System.Drawing.Size(1010, 29);
-            this.statusStrip1.TabIndex = 12;
-            this.statusStrip1.Text = "status";
-            // 
-            // tsslRunTime
-            // 
-            this.tsslRunTime.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tsslRunTime.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.tsslRunTime.Image = ((System.Drawing.Image)(resources.GetObject("tsslRunTime.Image")));
-            this.tsslRunTime.Name = "tsslRunTime";
-            this.tsslRunTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tsslRunTime.Size = new System.Drawing.Size(86, 24);
-            this.tsslRunTime.Text = "Run Time";
-            this.tsslRunTime.Click += new System.EventHandler(this.tsslRunTime_Click);
-            // 
-            // tsslblCounter
-            // 
-            this.tsslblCounter.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
-            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
-            this.tsslblCounter.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
-            this.tsslblCounter.Image = ((System.Drawing.Image)(resources.GetObject("tsslblCounter.Image")));
-            this.tsslblCounter.Name = "tsslblCounter";
-            this.tsslblCounter.Size = new System.Drawing.Size(78, 24);
-            this.tsslblCounter.Text = "Counter";
-            this.tsslblCounter.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
-            // tsslblStatus
-            // 
-            this.tsslblStatus.Image = ((System.Drawing.Image)(resources.GetObject("tsslblStatus.Image")));
-            this.tsslblStatus.Name = "tsslblStatus";
-            this.tsslblStatus.Size = new System.Drawing.Size(64, 20);
-            this.tsslblStatus.Text = "Ready";
-            this.tsslblStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            // 
             // tssbtnSave
             // 
             this.tssbtnSave.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -166,6 +109,11 @@
             this.tsmiSaveAs.Size = new System.Drawing.Size(120, 22);
             this.tsmiSaveAs.Text = "Save as";
             this.tsmiSaveAs.Click += new System.EventHandler(this.tsmiSaveAs_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 27);
             // 
             // tsbtnStart
             // 
@@ -196,6 +144,12 @@
             this.toolStripButton1.Text = "Restart";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.toolStripSeparator2.Click += new System.EventHandler(this.toolStripSeparator2_Click);
+            // 
             // tssbtnAddWindow
             // 
             this.tssbtnAddWindow.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -204,7 +158,8 @@
             this.tsmiTagTable,
             this.tsmiRSSIGraph,
             this.tsmiPhaseGraph,
-            this.tsmiHolographics});
+            this.tsmiHolographics,
+            this.vitalSignsToolStripMenuItem});
             this.tssbtnAddWindow.Image = ((System.Drawing.Image)(resources.GetObject("tssbtnAddWindow.Image")));
             this.tssbtnAddWindow.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tssbtnAddWindow.Name = "tssbtnAddWindow";
@@ -266,7 +221,7 @@
             // 
             this.tsmiDemoSortingBooks.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDemoSortingBooks.Image")));
             this.tsmiDemoSortingBooks.Name = "tsmiDemoSortingBooks";
-            this.tsmiDemoSortingBooks.Size = new System.Drawing.Size(220, 22);
+            this.tsmiDemoSortingBooks.Size = new System.Drawing.Size(224, 26);
             this.tsmiDemoSortingBooks.Text = "Demo - Sorting books";
             this.tsmiDemoSortingBooks.Click += new System.EventHandler(this.tsmiDemoSortingBooks_Click);
             // 
@@ -274,8 +229,63 @@
             // 
             this.tsmiDemoTrackingObjects.Image = ((System.Drawing.Image)(resources.GetObject("tsmiDemoTrackingObjects.Image")));
             this.tsmiDemoTrackingObjects.Name = "tsmiDemoTrackingObjects";
-            this.tsmiDemoTrackingObjects.Size = new System.Drawing.Size(220, 22);
+            this.tsmiDemoTrackingObjects.Size = new System.Drawing.Size(224, 26);
             this.tsmiDemoTrackingObjects.Text = "Demo - Tracking objects";
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslRunTime,
+            this.tsslblCounter,
+            this.tsslblStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 736);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.statusStrip1.Size = new System.Drawing.Size(1010, 29);
+            this.statusStrip1.TabIndex = 12;
+            this.statusStrip1.Text = "status";
+            // 
+            // tsslRunTime
+            // 
+            this.tsslRunTime.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tsslRunTime.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.tsslRunTime.Image = ((System.Drawing.Image)(resources.GetObject("tsslRunTime.Image")));
+            this.tsslRunTime.Name = "tsslRunTime";
+            this.tsslRunTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.tsslRunTime.Size = new System.Drawing.Size(86, 24);
+            this.tsslRunTime.Text = "Run Time";
+            this.tsslRunTime.Click += new System.EventHandler(this.tsslRunTime_Click);
+            // 
+            // tsslblCounter
+            // 
+            this.tsslblCounter.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.tsslblCounter.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+            this.tsslblCounter.Image = ((System.Drawing.Image)(resources.GetObject("tsslblCounter.Image")));
+            this.tsslblCounter.Name = "tsslblCounter";
+            this.tsslblCounter.Size = new System.Drawing.Size(78, 24);
+            this.tsslblCounter.Text = "Counter";
+            this.tsslblCounter.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // tsslblStatus
+            // 
+            this.tsslblStatus.Image = ((System.Drawing.Image)(resources.GetObject("tsslblStatus.Image")));
+            this.tsslblStatus.Name = "tsslblStatus";
+            this.tsslblStatus.Size = new System.Drawing.Size(64, 24);
+            this.tsslblStatus.Text = "Ready";
+            this.tsslblStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            // 
+            // vitalSignsToolStripMenuItem
+            // 
+            this.vitalSignsToolStripMenuItem.Image = global::RFIDIntegratedApplication.Properties.Resources.timer;
+            this.vitalSignsToolStripMenuItem.Name = "vitalSignsToolStripMenuItem";
+            this.vitalSignsToolStripMenuItem.Size = new System.Drawing.Size(172, 26);
+            this.vitalSignsToolStripMenuItem.Text = "VitalSigns";
+            this.vitalSignsToolStripMenuItem.Click += new System.EventHandler(this.vitalSignsToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -327,5 +337,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiDemoSortingBooks;
         private System.Windows.Forms.ToolStripMenuItem tsmiDemoTrackingObjects;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripMenuItem vitalSignsToolStripMenuItem;
     }
 }

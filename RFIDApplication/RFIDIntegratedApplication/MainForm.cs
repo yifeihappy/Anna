@@ -875,6 +875,11 @@ namespace RFIDIntegratedApplication
         {
             this._updateEpcForm.Show(this.dockPanelMain, AppConfig.updateEpcDockState);
         }
+
+        private void vitalSignsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this._vitalSignsForm.Show(this.dockPanelMain, AppConfig.vitalSignsDockState);
+        }
     }
 
 }
