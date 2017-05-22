@@ -150,6 +150,7 @@
             this.chartRSSI.Size = new System.Drawing.Size(584, 436);
             this.chartRSSI.TabIndex = 0;
             this.chartRSSI.Text = "RSSI";
+            this.chartRSSI.Click += new System.EventHandler(this.chartRSSI_Click);
             // 
             // RSSIGraphFrom
             // 

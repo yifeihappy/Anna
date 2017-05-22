@@ -369,6 +369,8 @@
   <ItemGroup>
     <None Include="Resources\restart.png" />
     <None Include="Resources\epc.png" />
+    <None Include="Resources\VitalSigns.png" />
+    <None Include="Resources\VitalSign.jpg" />
     <Content Include="rfid.ico" />
     <None Include="Service References\ServiceReference3\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

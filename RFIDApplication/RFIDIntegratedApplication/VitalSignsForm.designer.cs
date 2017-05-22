@@ -28,20 +28,143 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VitalSignsForm));
-            this.aGauge1 = new RFIDIntegratedApplication.AGauge();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeNeedleTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.aGauge2 = new RFIDIntegratedApplication.AGauge();
-            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.breathLabel = new System.Windows.Forms.Label();
             this.heartbeatLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.aGauge1 = new RFIDIntegratedApplication.AGauge();
+            this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeNeedleTypeToolStripMenuItem});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.settingToolStripMenuItem.Text = "Setting";
+            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
+            // 
+            // changeNeedleTypeToolStripMenuItem
+            // 
+            this.changeNeedleTypeToolStripMenuItem.Name = "changeNeedleTypeToolStripMenuItem";
+            this.changeNeedleTypeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.changeNeedleTypeToolStripMenuItem.Text = "ChangeNeedleType";
+            this.changeNeedleTypeToolStripMenuItem.Click += new System.EventHandler(this.changeNeedleTypeToolStripMenuItem_Click);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(821, 25);
+            this.menuStrip2.TabIndex = 2;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(137, 286);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "呼吸速率";
+            // 
+            // breathLabel
+            // 
+            this.breathLabel.BackColor = System.Drawing.Color.LightGreen;
+            this.breathLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.breathLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.breathLabel.Location = new System.Drawing.Point(140, 83);
+            this.breathLabel.Name = "breathLabel";
+            this.breathLabel.Size = new System.Drawing.Size(50, 22);
+            this.breathLabel.TabIndex = 22;
+            this.breathLabel.Text = "17";
+            this.breathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // heartbeatLabel
+            // 
+            this.heartbeatLabel.BackColor = System.Drawing.Color.LightGreen;
+            this.heartbeatLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.heartbeatLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.heartbeatLabel.Location = new System.Drawing.Point(595, 83);
+            this.heartbeatLabel.Name = "heartbeatLabel";
+            this.heartbeatLabel.Size = new System.Drawing.Size(50, 22);
+            this.heartbeatLabel.TabIndex = 23;
+            this.heartbeatLabel.Text = "70";
+            this.heartbeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(471, 270);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(294, 33);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "心率";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chart1
+            // 
+            this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.Interval = 0D;
+            chartArea1.AxisX.LineWidth = 2;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MajorTickMark.Interval = 0D;
+            chartArea1.AxisX.MajorTickMark.IntervalOffset = 0D;
+            chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
+            chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.Title = "秒";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.Interval = 0D;
+            chartArea1.AxisY.LineWidth = 2;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MajorTickMark.Interval = 0D;
+            chartArea1.AxisY.Maximum = 200D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.Title = "次/分钟";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorX.SelectionColor = System.Drawing.Color.DeepSkyBlue;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.SelectionColor = System.Drawing.Color.DeepSkyBlue;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 70F;
+            chartArea1.Position.Width = 95F;
+            chartArea1.Position.X = 2F;
+            chartArea1.Position.Y = 10F;
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Location = new System.Drawing.Point(64, 317);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(701, 244);
+            this.chart1.TabIndex = 24;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click_1);
             // 
             // aGauge1
             // 
@@ -72,8 +195,8 @@
         ""};
             this.aGauge1.CapText = "次/分钟";
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.aGauge1.Location = new System.Drawing.Point(67, 198);
+            this.aGauge1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge1.Location = new System.Drawing.Point(64, 143);
             this.aGauge1.MaxValue = 30F;
             this.aGauge1.MinValue = 0F;
             this.aGauge1.Name = "aGauge1";
@@ -151,32 +274,6 @@
             this.aGauge1.Value = 17F;
             this.aGauge1.ValueInRangeChanged += new RFIDIntegratedApplication.AGauge.ValueInRangeChangedDelegate(this.aGauge1_ValueInRangeChanged);
             // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeNeedleTypeToolStripMenuItem});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
-            this.settingToolStripMenuItem.Text = "Setting";
-            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
-            // 
-            // changeNeedleTypeToolStripMenuItem
-            // 
-            this.changeNeedleTypeToolStripMenuItem.Name = "changeNeedleTypeToolStripMenuItem";
-            this.changeNeedleTypeToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.changeNeedleTypeToolStripMenuItem.Text = "ChangeNeedleType";
-            this.changeNeedleTypeToolStripMenuItem.Click += new System.EventHandler(this.changeNeedleTypeToolStripMenuItem_Click);
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingToolStripMenuItem});
-            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(680, 25);
-            this.menuStrip2.TabIndex = 2;
-            this.menuStrip2.Text = "menuStrip2";
-            // 
             // aGauge2
             // 
             this.aGauge2.BaseArcColor = System.Drawing.Color.Gray;
@@ -206,8 +303,8 @@
         ""};
             this.aGauge2.CapText = "";
             this.aGauge2.Center = new System.Drawing.Point(150, 180);
-            this.aGauge2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.aGauge2.Location = new System.Drawing.Point(337, 183);
+            this.aGauge2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge2.Location = new System.Drawing.Point(468, 125);
             this.aGauge2.MaxValue = 160F;
             this.aGauge2.MinValue = 40F;
             this.aGauge2.Name = "aGauge2";
@@ -284,66 +381,12 @@
             this.aGauge2.Text = "aGauge4";
             this.aGauge2.Value = 70F;
             // 
-            // label3
-            // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(337, 298);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(294, 33);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "心率";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(137, 314);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "呼吸速率";
-            // 
-            // breathLabel
-            // 
-            this.breathLabel.BackColor = System.Drawing.Color.LightGreen;
-            this.breathLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.breathLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.breathLabel.Location = new System.Drawing.Point(143, 174);
-            this.breathLabel.Name = "breathLabel";
-            this.breathLabel.Size = new System.Drawing.Size(50, 22);
-            this.breathLabel.TabIndex = 22;
-            this.breathLabel.Text = "17";
-            this.breathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // heartbeatLabel
-            // 
-            this.heartbeatLabel.BackColor = System.Drawing.Color.LightGreen;
-            this.heartbeatLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.heartbeatLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.heartbeatLabel.Location = new System.Drawing.Point(457, 174);
-            this.heartbeatLabel.Name = "heartbeatLabel";
-            this.heartbeatLabel.Size = new System.Drawing.Size(50, 22);
-            this.heartbeatLabel.TabIndex = 23;
-            this.heartbeatLabel.Text = "70";
-            this.heartbeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(298, 84);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 81);
-            this.pictureBox1.TabIndex = 24;
-            this.pictureBox1.TabStop = false;
-            // 
             // VitalSignsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 343);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(821, 573);
+            this.Controls.Add(this.chart1);
             this.Controls.Add(this.heartbeatLabel);
             this.Controls.Add(this.breathLabel);
             this.Controls.Add(this.aGauge1);
@@ -351,13 +394,12 @@
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip2);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "VitalSignsForm";
             this.Text = "Display";
-        
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -370,10 +412,10 @@
         private System.Windows.Forms.ToolStripMenuItem changeNeedleTypeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private AGauge aGauge2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label breathLabel;
         private System.Windows.Forms.Label heartbeatLabel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

@@ -134,6 +134,9 @@ namespace RFIDIntegratedApplication
             tscbPointFrequency.Text = Convert.ToString(1);
         }
 
-     
+        private void chartRSSI_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
