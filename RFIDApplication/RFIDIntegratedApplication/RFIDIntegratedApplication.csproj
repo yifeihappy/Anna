@@ -103,6 +103,12 @@
     <Compile Include="Analysis\SyntheticApertureRadar.cs" />
     <Compile Include="Analysis\TagPos.cs" />
     <Compile Include="CurrentMillis.cs" />
+    <Compile Include="Forms\VitalSignsConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VitalSignsConfigForm.Designer.cs">
+      <DependentUpon>VitalSignsConfigForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Service References\ServiceReference4\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,6 +218,9 @@
     <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Utility\CSVFileHelper.cs" />
     <Compile Include="Utility\IFormable.cs" />
+    <EmbeddedResource Include="Forms\VitalSignsConfigForm.resx">
+      <DependentUpon>VitalSignsConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\VitalSignsForm.resx">
       <DependentUpon>VitalSignsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -389,6 +398,8 @@
     <None Include="Resources\epc.png" />
     <None Include="Resources\VitalSigns.png" />
     <None Include="Resources\VitalSign.jpg" />
+    <None Include="Resources\import.png" />
+    <None Include="Resources\config.png" />
     <Content Include="rfid.ico" />
     <None Include="Service References\ServiceReference3\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>

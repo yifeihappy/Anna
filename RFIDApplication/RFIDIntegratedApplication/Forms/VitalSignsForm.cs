@@ -11,6 +11,7 @@ using WeifenLuo.WinFormsUI.Docking;
 using System.Windows.Forms.DataVisualization.Charting;
 using RFIDIntegratedApplication.ServiceReference4;
 using RFIDIntegratedApplication.service;
+using RFIDIntegratedApplication.Forms;
 
 namespace RFIDIntegratedApplication
 {
@@ -18,6 +19,7 @@ namespace RFIDIntegratedApplication
     {
         private System.Windows.Forms.Timer timer = new Timer() { };
         private bool _realtime = true;
+        private VitalSignsConfigForm vitalSignsConfigForm;
         public   const  string BREATH_RATE = "呼吸频率";
         public const string HEART_RATE = "心跳频率";
         public VitalSignsForm()
@@ -37,6 +39,7 @@ namespace RFIDIntegratedApplication
              }*/
             timer.Tick += new EventHandler(timer_Tick);
             timer.Enabled = true;
+            
         }
         public bool isRealtime
         {
@@ -111,10 +114,6 @@ namespace RFIDIntegratedApplication
 
         }
 
-        private void changeNeedleTypeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            aGauge1.NeedleType = aGauge1.NeedleType == 0 ? 1 : 0;
-        }
 
 
 
@@ -202,5 +201,17 @@ namespace RFIDIntegratedApplication
                 
             }
         }
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vitalSignsConfigForm = new VitalSignsConfigForm();
+            vitalSignsConfigForm.Show();
+        }
+
+        private void changeNeedleType_Click(object sender, EventArgs e)
+        {
+            aGauge1.NeedleType = aGauge1.NeedleType == 0 ? 1 : 0;
+        }
+
     }
 }

@@ -286,3 +286,4 @@ C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\ob
 C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csproj.GenerateResource.Cache
 C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.exe
 C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.pdb
+E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Forms.VitalSignsConfigForm.resources
