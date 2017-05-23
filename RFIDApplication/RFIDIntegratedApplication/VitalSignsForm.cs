@@ -14,6 +14,7 @@ namespace RFIDIntegratedApplication
     public partial class VitalSignsForm : DockContent
     {
         private System.Windows.Forms.Timer timer = new Timer() { };
+        private bool _realtime = true;
         public   const  string BREATH_RATE = "呼吸频率";
         public const string HEART_RATE = "心跳频率";
         public VitalSignsForm()
@@ -22,7 +23,7 @@ namespace RFIDIntegratedApplication
             //Create a new curve
             Title titlePhase = new Title("生命体征变化曲线图", Docking.Top);
             titlePhase.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
-            titlePhase.Font = new System.Drawing.Font("Microsoft Sans Serif", 20, System.Drawing.FontStyle.Bold);
+            titlePhase.Font = new System.Drawing.Font("Microsoft Yahei", 15, System.Drawing.FontStyle.Bold);
             chart1.Titles.Add(titlePhase);
             addGraphItem(BREATH_RATE);
             addGraphItem(HEART_RATE);
@@ -33,6 +34,17 @@ namespace RFIDIntegratedApplication
              }*/
             timer.Tick += new EventHandler(timer_Tick);
             timer.Enabled = true;
+        }
+        public bool isRealtime
+        {
+            get
+            {
+                return _realtime;
+            }
+            set
+            {
+                _realtime = value;
+            }
         }
         private int count=0;
         void timer_Tick(object sender, EventArgs e)
@@ -58,8 +70,8 @@ namespace RFIDIntegratedApplication
             Legend legendPhase = new Legend(name);
             //Set legend propertities
             legendPhase.Title = "项目";
-            legendPhase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10, System.Drawing.FontStyle.Bold);
-            legendPhase.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 12, System.Drawing.FontStyle.Bold);
+            legendPhase.Font = new System.Drawing.Font("Microsoft Yahei", 10, System.Drawing.FontStyle.Bold);
+            legendPhase.TitleFont = new System.Drawing.Font("Microsoft Yahei", 12, System.Drawing.FontStyle.Bold);
 
             legendPhase.LegendStyle = LegendStyle.Table;
             legendPhase.Alignment = System.Drawing.StringAlignment.Center;
@@ -75,6 +87,19 @@ namespace RFIDIntegratedApplication
 
         private void aGauge1_ValueInRangeChanged(object sender, AGauge.ValueInRangeChangedEventArgs e)
         {
+            switch (e.valueInRange)
+            {
+                case 0:
+                    breathLabel.BackColor = Color.Orange;
+                    break;
+                case 1:
+                    breathLabel.BackColor = Color.LightGreen;
+                    break;
+                case 2:
+                    breathLabel.BackColor = Color.Orange;
+                    break;
+            }
+    
 
         }
 
@@ -98,7 +123,7 @@ namespace RFIDIntegratedApplication
 
             for (int i = 0; i < 30; i++)
             {
-                this.Location = new Point(point.X + ran.Next(10) - 4, point.Y + ran.Next(10) - 4);
+                this.Location = new Point(point.X + ran.Next(10) - 8, point.Y + ran.Next(10) - 8);
 
                 System.Threading.Thread.Sleep(15);
 
@@ -107,11 +132,17 @@ namespace RFIDIntegratedApplication
                 System.Threading.Thread.Sleep(15);
             }
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void updateGauge(string breathStr, string heartbeatStr)
         {
-            shake();
+            breathLabel.Text = breathStr;
+            heartbeatLabel.Text = heartbeatStr;
+
+            int breath,heartbeat;
+            aGauge1.Value = breath = Convert.ToInt32(breathStr, CultureInfo.InvariantCulture.NumberFormat);
+            aGauge2.Value = heartbeat = Convert.ToInt32(heartbeatStr, CultureInfo.InvariantCulture.NumberFormat);
+
         }
+
 
         private void chart1_Click(object sender, EventArgs e)
         {
@@ -124,6 +155,28 @@ namespace RFIDIntegratedApplication
         }
 
         public void updatePhase(string key,int data)
+        {
+
+        }
+
+        private void VitalSignsForm_Load(object sender, EventArgs e)
+        {
+            importToolStripMenuItem.Enabled = !_realtime;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            shake();
+        }
+
+        private void realTimeMonitorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _realtime = !_realtime;
+            realTimeMonitorToolStripMenuItem.Checked = !realTimeMonitorToolStripMenuItem.Checked;
+            importToolStripMenuItem.Enabled = !_realtime;
+        }
+
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
