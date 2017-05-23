@@ -1,0 +1,6 @@
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.pdb
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb

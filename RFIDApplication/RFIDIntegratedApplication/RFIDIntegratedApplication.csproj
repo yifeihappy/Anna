@@ -103,10 +103,15 @@
     <Compile Include="Analysis\SyntheticApertureRadar.cs" />
     <Compile Include="Analysis\TagPos.cs" />
     <Compile Include="CurrentMillis.cs" />
-    <Compile Include="VitalSignsForm.cs">
+    <Compile Include="Service References\ServiceReference4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VitalSignsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VitalSignsForm.designer.cs">
+    <Compile Include="Forms\VitalSignsForm.designer.cs">
       <DependentUpon>VitalSignsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LinearGuideForm.cs">
@@ -140,16 +145,16 @@
       <DependentUpon>UpdateEpcForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IAGauge.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhaseGraphForm.cs">
+    <Compile Include="Forms\PhaseGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PhaseGraphForm.Designer.cs">
+    <Compile Include="Forms\PhaseGraphForm.Designer.cs">
       <DependentUpon>PhaseGraphForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -159,23 +164,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReaderSettingsForm.cs">
+    <Compile Include="Forms\ReaderSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReaderSettingsForm.Designer.cs">
+    <Compile Include="Forms\ReaderSettingsForm.Designer.cs">
       <DependentUpon>ReaderSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reader\RFIDReaderParameter.cs" />
-    <Compile Include="RSSIGraphForm.cs">
+    <Compile Include="Forms\RSSIGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RSSIGraphForm.Designer.cs">
+    <Compile Include="Forms\RSSIGraphForm.Designer.cs">
       <DependentUpon>RSSIGraphForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchReaderIPForm.cs">
+    <Compile Include="Forms\SearchReaderIPForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchReaderIPForm.Designer.cs">
+    <Compile Include="Forms\SearchReaderIPForm.Designer.cs">
       <DependentUpon>SearchReaderIPForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Service References\ServiceReference1\Reference.cs">
@@ -196,10 +201,10 @@
     <Compile Include="service\CalculateType.cs" />
     <Compile Include="service\ServiceManager.cs" />
     <Compile Include="service\StringValue.cs" />
-    <Compile Include="TagTableForm.cs">
+    <Compile Include="Forms\TagTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TagTableForm.Designer.cs">
+    <Compile Include="Forms\TagTableForm.Designer.cs">
       <DependentUpon>TagTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tag\TagsTable.cs" />
@@ -207,7 +212,7 @@
     <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Utility\CSVFileHelper.cs" />
     <Compile Include="Utility\IFormable.cs" />
-    <EmbeddedResource Include="VitalSignsForm.resx">
+    <EmbeddedResource Include="Forms\VitalSignsForm.resx">
       <DependentUpon>VitalSignsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LinearGuideForm.resx">
@@ -225,10 +230,10 @@
     <EmbeddedResource Include="Forms\UpdateEpcForm.resx">
       <DependentUpon>UpdateEpcForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PhaseGraphForm.resx">
+    <EmbeddedResource Include="Forms\PhaseGraphForm.resx">
       <DependentUpon>PhaseGraphForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -236,16 +241,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReaderSettingsForm.resx">
+    <EmbeddedResource Include="Forms\ReaderSettingsForm.resx">
       <DependentUpon>ReaderSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RSSIGraphForm.resx">
+    <EmbeddedResource Include="Forms\RSSIGraphForm.resx">
       <DependentUpon>RSSIGraphForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchReaderIPForm.resx">
+    <EmbeddedResource Include="Forms\SearchReaderIPForm.resx">
       <DependentUpon>SearchReaderIPForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TagTableForm.resx">
+    <EmbeddedResource Include="Forms\TagTableForm.resx">
       <DependentUpon>TagTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -303,6 +308,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\ServiceReference3\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference4\service.wsdl" />
+    <None Include="Service References\ServiceReference4\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference4\service1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -367,6 +379,12 @@
     <None Include="Resources\holographics.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Service References\ServiceReference4\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ServiceReference4\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference4\configuration91.svcinfo" />
     <None Include="Resources\restart.png" />
     <None Include="Resources\epc.png" />
     <None Include="Resources\VitalSigns.png" />
@@ -398,6 +416,7 @@
     <WCFMetadataStorage Include="Service References\ServiceReference1\" />
     <WCFMetadataStorage Include="Service References\ServiceReference2\" />
     <WCFMetadataStorage Include="Service References\ServiceReference3\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference4\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

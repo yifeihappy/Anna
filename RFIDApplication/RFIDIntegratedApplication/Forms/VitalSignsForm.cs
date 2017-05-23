@@ -9,6 +9,9 @@ using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Windows.Forms.DataVisualization.Charting;
+using RFIDIntegratedApplication.ServiceReference4;
+using RFIDIntegratedApplication.service;
+
 namespace RFIDIntegratedApplication
 {
     public partial class VitalSignsForm : DockContent
@@ -178,7 +181,26 @@ namespace RFIDIntegratedApplication
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = "E:\\交大\\Script\\Data";
+            openFileDialog.Filter = "CSV File(*.csv)|*.csv";
+            openFileDialog.RestoreDirectory = true;
+            openFileDialog.FilterIndex = 1;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(openFileDialog.FileName);
+                IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
+                try
+                {
+                    vitalSignsService.offlineAnalyze(openFileDialog.FileName);
+                    ServiceManager.closeService(vitalSignsService);
+                }
+                catch
+                {
+                    Console.WriteLine("服务未启动");
+                }
+                
+            }
         }
     }
 }

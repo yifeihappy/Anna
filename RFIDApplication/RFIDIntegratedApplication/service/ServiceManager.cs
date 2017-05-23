@@ -8,6 +8,7 @@ using RFIDIntegratedApplication.ServiceReference2;
 using RFIDIntegratedApplication.ServiceReference3;
 using System.ServiceModel;
 using System.Reflection;
+using RFIDIntegratedApplication.ServiceReference4;
 
 namespace RFIDIntegratedApplication.service
 {
@@ -67,6 +68,16 @@ namespace RFIDIntegratedApplication.service
                 output = attrs[0].Value;
             }
             return output;
+        }
+
+        public static IVitalSignsService getOneVitalSignsService()
+        {
+            return new VitalSignsServiceClient();
+        }
+
+        public static void closeService(IVitalSignsService service)
+        {
+            ((VitalSignsServiceClient)service).Close();
         }
     }
 }  
