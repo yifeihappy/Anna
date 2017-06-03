@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.label1 = new System.Windows.Forms.Label();
             this.breathLabel = new System.Windows.Forms.Label();
             this.heartbeatLabel = new System.Windows.Forms.Label();
@@ -37,14 +37,13 @@
             this.aGauge1 = new RFIDIntegratedApplication.AGauge();
             this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeNeedleType = new System.Windows.Forms.ToolStripMenuItem();
             this.realTimeMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -100,45 +99,45 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.Interval = 0D;
-            chartArea2.AxisX.LineWidth = 2;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisX.MajorTickMark.Interval = 0D;
-            chartArea2.AxisX.MajorTickMark.IntervalOffset = 0D;
-            chartArea2.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
-            chartArea2.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
-            chartArea2.AxisX.Minimum = 0D;
-            chartArea2.AxisX.Title = "秒";
-            chartArea2.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.Interval = 0D;
-            chartArea2.AxisY.LineWidth = 2;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
-            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-            chartArea2.AxisY.MajorTickMark.Interval = 0D;
-            chartArea2.AxisY.Maximum = 200D;
-            chartArea2.AxisY.Minimum = 0D;
-            chartArea2.AxisY.Title = "次/分钟";
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.CursorX.IsUserEnabled = true;
-            chartArea2.CursorX.IsUserSelectionEnabled = true;
-            chartArea2.CursorX.SelectionColor = System.Drawing.Color.DeepSkyBlue;
-            chartArea2.CursorY.IsUserEnabled = true;
-            chartArea2.CursorY.IsUserSelectionEnabled = true;
-            chartArea2.CursorY.SelectionColor = System.Drawing.Color.DeepSkyBlue;
-            chartArea2.Name = "ChartArea1";
-            chartArea2.Position.Auto = false;
-            chartArea2.Position.Height = 70F;
-            chartArea2.Position.Width = 95F;
-            chartArea2.Position.X = 2F;
-            chartArea2.Position.Y = 10F;
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.Interval = 0D;
+            chartArea1.AxisX.LineWidth = 2;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisX.MajorTickMark.Interval = 0D;
+            chartArea1.AxisX.MajorTickMark.IntervalOffset = 0D;
+            chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
+            chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
+            chartArea1.AxisX.Minimum = 0D;
+            chartArea1.AxisX.Title = "秒";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.Interval = 0D;
+            chartArea1.AxisY.LineWidth = 2;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+            chartArea1.AxisY.MajorTickMark.Interval = 0D;
+            chartArea1.AxisY.Maximum = 200D;
+            chartArea1.AxisY.Minimum = 0D;
+            chartArea1.AxisY.Title = "次/分钟";
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.CursorX.IsUserEnabled = true;
+            chartArea1.CursorX.IsUserSelectionEnabled = true;
+            chartArea1.CursorX.SelectionColor = System.Drawing.Color.DeepSkyBlue;
+            chartArea1.CursorY.IsUserEnabled = true;
+            chartArea1.CursorY.IsUserSelectionEnabled = true;
+            chartArea1.CursorY.SelectionColor = System.Drawing.Color.DeepSkyBlue;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.Position.Auto = false;
+            chartArea1.Position.Height = 70F;
+            chartArea1.Position.Width = 95F;
+            chartArea1.Position.X = 2F;
+            chartArea1.Position.Y = 10F;
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Location = new System.Drawing.Point(64, 317);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(701, 244);
@@ -367,13 +366,21 @@
             this.toolStripButton2,
             this.toolStripButton1,
             this.toolStripSplitButton1,
-            this.importToolStripMenuItem,
-            this.configurationToolStripMenuItem});
+            this.importToolStripMenuItem});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(821, 25);
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Linen;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(52, 22);
+            this.toolStripButton2.Text = "开始";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton1
             // 
@@ -400,13 +407,13 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeNeedleType});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingToolStripMenuItem.Text = "外观";
             // 
             // changeNeedleType
             // 
             this.changeNeedleType.Name = "changeNeedleType";
-            this.changeNeedleType.Size = new System.Drawing.Size(148, 22);
+            this.changeNeedleType.Size = new System.Drawing.Size(152, 22);
             this.changeNeedleType.Text = "改变表针形状";
             this.changeNeedleType.Click += new System.EventHandler(this.changeNeedleType_Click);
             // 
@@ -415,7 +422,7 @@
             this.realTimeMonitorToolStripMenuItem.Checked = true;
             this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
-            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
             this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
             // 
@@ -427,24 +434,6 @@
             this.importToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
             this.importToolStripMenuItem.Text = "导入";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
-            // 
-            // configurationToolStripMenuItem
-            // 
-            this.configurationToolStripMenuItem.Image = global::RFIDIntegratedApplication.Properties.Resources.config;
-            this.configurationToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Linen;
-            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
-            this.configurationToolStripMenuItem.Text = "配置";
-            this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Linen;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton2.Text = "开始";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // VitalSignsForm
             // 
@@ -485,7 +474,6 @@
         private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
         private System.Windows.Forms.ToolStripMenuItem settingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeNeedleType;
-        private System.Windows.Forms.ToolStripButton configurationToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton importToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem realTimeMonitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;

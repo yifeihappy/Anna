@@ -26,5 +26,11 @@ namespace RFIDIntegratedApplication.Tag
 
             frequencies.Rows.Add(row);
         }
+
+        public void clear()
+        {
+            frequencies.Clear();
+           
+        }
     }
 }

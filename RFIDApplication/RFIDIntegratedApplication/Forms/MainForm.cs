@@ -47,8 +47,10 @@ namespace RFIDIntegratedApplication
         DateTime _startTime;                   //Record Inventory time
         Queue<ServiceReference1.TagInfo> tagInfoQueue;           //Store tag infos in latest 30s 
         int vitalSignsTiming;       //false
+        int saveTiming;
         bool isFinish;
         System.Timers.Timer vitalSignsTimer = new System.Timers.Timer();
+        FrequencyTable frequencyTable;
 
         List<TagInfo> tagInfos;
 
@@ -66,7 +68,7 @@ namespace RFIDIntegratedApplication
             _tagsQueue = new ConcurrentQueue<TagInfo>();
             _tagsTable = new TagsTable();
             tagInfoQueue = new Queue<TagInfo>();
-            vitalSignsTiming = 0;
+            vitalSignsTiming = saveTiming = 0;
             isFinish = false;
             vitalSignsTimer.Elapsed += new System.Timers.ElapsedEventHandler(vitalSignsExtract);
             vitalSignsTimer.Interval = 1000;
@@ -608,6 +610,7 @@ namespace RFIDIntegratedApplication
         public void startVitalSignsMonitoring()
         {
             //vitalSignsTiming = 0;
+            frequencyTable = new FrequencyTable();
             vitalSignsTimer.Start();
             vitalSignsTimer.Enabled = true;
             //vitalSignsTimer.AutoReset = true;
@@ -620,6 +623,16 @@ namespace RFIDIntegratedApplication
 
         public void vitalSignsExtract(object source,ElapsedEventArgs e)
         {
+            saveTiming++;
+            if (saveTiming >= 60)
+            {
+                saveTiming = 0;
+                String filename = Path.Combine("../../../record/", DateTime.Now.ToString("yyyy_MM_dd_hh") + "_record.csv");
+                CSVFileHelper.SaveCSV(frequencyTable.frequencies,filename);
+                frequencyTable.clear();
+                
+         
+            }
             if (vitalSignsTiming < 30)
             {
                 vitalSignsTiming++;
@@ -630,8 +643,8 @@ namespace RFIDIntegratedApplication
                 isFinish = false;
                 
                 //MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
-                
-                int count = 0;
+                ///////////////////
+               /* int count = 0;
                 long[] timestamp = new long[tagInfos.Count];
                 int[] phase = new int[tagInfos.Count];
                 int[] frequency = new int[tagInfos.Count];
@@ -642,12 +655,12 @@ namespace RFIDIntegratedApplication
                     phase[count] = tagInfo.RawPhase;
                     frequency[count] = tagInfo.Frequency;
                     epc[count++] = tagInfo.EPC;
-                }
+                }*/
              
                 /*
                 IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
                 vitalSignsService.realtimeAnalyze(epc, timestamp, phase, frequency);*/
-                FrequencyTable frequencyTable = new FrequencyTable();
+
                 frequencyTable.add(17, 71);
                 isFinish = true;
                 ////////////////////
@@ -682,6 +695,7 @@ namespace RFIDIntegratedApplication
             StartInventory();
             this.tsbtnStart.Enabled = false;
             this.tsbtnStop.Enabled = true;
+            this._vitalSignsForm.enableRealTime();
 
         }
 

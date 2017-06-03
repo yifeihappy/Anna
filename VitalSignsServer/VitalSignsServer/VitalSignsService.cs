@@ -95,7 +95,6 @@ namespace VitalSignsServer
             vitalSignsExtract.vitalSignsExtract(3, ref result, argsIn);
 
             
-            throw new NotImplementedException();
         }
     }
 }

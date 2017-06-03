@@ -31,11 +31,30 @@ namespace RFIDIntegratedApplication
         int breath;
         int heartbeat;
         static MainForm _mainform;
+        public void enableRealTime()
+        {
+            realTimeMonitorToolStripMenuItem.Enabled = true;
+        }
+
+        public void disableRealTime()
+        {
+            _realtime = false;
+            timer.Stop();
+            this.toolStripButton1.Enabled = false;
+            this.toolStripButton2.Enabled = false;
+            realTimeMonitorToolStripMenuItem.Checked = false;
+            realTimeMonitorToolStripMenuItem.Enabled = false;
+        }
 
         public VitalSignsForm(MainForm mainform)
         {
             InitializeComponent();
             _mainform = mainform;
+            this.toolStripButton1.Enabled = false;
+            this.toolStripButton2.Enabled = false;
+            realTimeMonitorToolStripMenuItem.Checked = false;
+            realTimeMonitorToolStripMenuItem.Enabled = false;
+            importToolStripMenuItem.Enabled = true;
             //Create a new curve
             Title titlePhase = new Title("生命体征变化曲线图", Docking.Top);
             titlePhase.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -77,7 +96,7 @@ namespace RFIDIntegratedApplication
             //aGauge2.Value = heartbeat;
             //breathLabel.Text = breath.ToString();
             //heartbeatLabel.Text = heartbeat.ToString();
-            updateGauge();
+            //updateGauge();
             count++;
         }
 
@@ -202,10 +221,10 @@ namespace RFIDIntegratedApplication
             _realtime = !_realtime;
             realTimeMonitorToolStripMenuItem.Checked = !realTimeMonitorToolStripMenuItem.Checked;
             importToolStripMenuItem.Enabled = !_realtime;
+            toolStripButton2.Enabled = !toolStripButton2.Enabled;
+            //toolStripButton1.Enabled = !toolStripButton1.Enabled;
             if (!_realtime)
             {
-                toolStripButton2.Enabled = false;
-                toolStripButton1.Enabled = false;
                 timer.Stop();
             }
         }
@@ -224,8 +243,8 @@ namespace RFIDIntegratedApplication
                 addGraphItem(BREATH_RATE);
                 addGraphItem(HEART_RATE);
                 MessageBox.Show(openFileDialog.FileName);
-                /*
-                VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
+                
+                /*VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
                 MWCharArray filename = openFileDialog.FileName;
                 MWArray[] argsIn = new MWArray[] { filename };
                 MWArray[] result = new MWArray[3];
@@ -286,10 +305,14 @@ namespace RFIDIntegratedApplication
         private void changeNeedleType_Click(object sender, EventArgs e)
         {
             aGauge1.NeedleType = aGauge1.NeedleType == 0 ? 1 : 0;
+            aGauge2.NeedleType = aGauge2.NeedleType == 0 ? 1 : 0;
         }
 
+        //start
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
+            toolStripButton1.Enabled = true;
+            toolStripButton2.Enabled = false;
             timer.Tick += new EventHandler(timer_Tick);
             timer.Enabled = true;
             _mainform.startVitalSignsMonitoring();
@@ -297,6 +320,8 @@ namespace RFIDIntegratedApplication
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            toolStripButton2.Enabled = true;
+            toolStripButton1.Enabled = false;
             timer.Stop();
             _mainform.stopVitalSignsMonitoring();
         }
