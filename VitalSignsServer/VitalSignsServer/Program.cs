@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 using System.ServiceModel.Description;
+using MathWorks.MATLAB.NET.Arrays;
+using vitalsigns;
+using sub;
 
 namespace VitalSignsServer
 {
@@ -12,6 +15,14 @@ namespace VitalSignsServer
     {
         static void Main(string[] args)
         {
+           
+            /*Class1 a = new Class1();
+            MWArray b = 3, c = 6;
+            MWNumericArray e = new MWNumericArray(new int[] { 1,2});
+            MWArray[] argsIn = new MWArray[] { b, c,e };
+            MWArray[] result = new MWArray[2];
+            a.sub(2,ref result,argsIn);
+            Console.WriteLine(result.ToString());*/
             using (ServiceHost host = new ServiceHost(typeof(VitalSignsService)))
             {
                 ServiceMetadataBehavior smb = host.Description.Behaviors.Find<ServiceMetadataBehavior>();

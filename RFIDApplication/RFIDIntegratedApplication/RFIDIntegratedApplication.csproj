@@ -66,6 +66,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\LLRP.Impinj.dll</HintPath>
     </Reference>
+    <Reference Include="MWArray, Version=2.16.0.0, Culture=neutral, PublicKeyToken=e1d84a0da19db86f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\MATLAB\R2016a\toolbox\dotnetbuilder\bin\win64\v2.0\MWArray.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
@@ -81,6 +85,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="vitalsigns, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>E:\交大\Script\dynamic\offlineVitalSignsExtract\for_redistribution_files_only\vitalsigns.dll</HintPath>
+    </Reference>
     <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.9.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
@@ -108,11 +116,6 @@
     </Compile>
     <Compile Include="Forms\VitalSignsConfigForm.Designer.cs">
       <DependentUpon>VitalSignsConfigForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Service References\ServiceReference4\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Forms\VitalSignsForm.cs">
       <SubType>Form</SubType>
@@ -204,6 +207,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ServiceReference4\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="service\CalculateType.cs" />
     <Compile Include="service\ServiceManager.cs" />
     <Compile Include="service\StringValue.cs" />
@@ -215,6 +223,7 @@
     </Compile>
     <Compile Include="Tag\TagsTable.cs" />
     <Compile Include="Tag\TagsWithPosTable.cs" />
+    <Compile Include="Tag\FrequencyTable.cs" />
     <Compile Include="Utility\AppConfig.cs" />
     <Compile Include="Utility\CSVFileHelper.cs" />
     <Compile Include="Utility\IFormable.cs" />
@@ -319,6 +328,12 @@
     <None Include="Service References\ServiceReference3\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference4\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference4\RFIDIntegratedApplication.ServiceReference4.FrequencyInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ServiceReference4\service.wsdl" />
     <None Include="Service References\ServiceReference4\service.xsd">
       <SubType>Designer</SubType>
@@ -326,9 +341,14 @@
     <None Include="Service References\ServiceReference4\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference4\VitalSignsServer.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\status_connecting.png" />

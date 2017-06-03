@@ -22,6 +22,9 @@ using RFIDIntegratedApplication.ServiceReference1;
 using RFIDIntegratedApplication.service;
 using RFIDIntegratedApplication.ServiceReference3;
 using RFIDIntegratedApplication.Forms;
+using System.Timers;
+using vitalsigns;
+
 
 namespace RFIDIntegratedApplication
 {
@@ -42,12 +45,18 @@ namespace RFIDIntegratedApplication
 
         TagsTable _tagsTable;                  //Store all tag reports from RFID reader to export to a CSV file
         DateTime _startTime;                   //Record Inventory time
+        Queue<ServiceReference1.TagInfo> tagInfoQueue;           //Store tag infos in latest 30s 
+        int vitalSignsTiming;       //false
+        bool isFinish;
+        System.Timers.Timer vitalSignsTimer = new System.Timers.Timer();
+
+        List<TagInfo> tagInfos;
 
         string _filepath;                      //The filepath of App related file
         string _filename;                      //The filename of storing tags
         ulong _firstReportTime;                //Record first tag report time for calculating relative time
 
-        static ConcurrentQueue<TagInfo> _tagsQueue;  // Queue for storing taginfo
+        static ConcurrentQueue<ServiceReference1.TagInfo> _tagsQueue;  // Queue for storing taginfo
         Thread _dequeueThread;                       // Dequeue Thread for dequeue taginfo and then update forms
         Thread _dequeueTagPosThread;                 // Dequeue thread for dequeue tagPos and then updateForms
         public MainForm()
@@ -56,6 +65,11 @@ namespace RFIDIntegratedApplication
             _filename = "\\TagLog.csv";
             _tagsQueue = new ConcurrentQueue<TagInfo>();
             _tagsTable = new TagsTable();
+            tagInfoQueue = new Queue<TagInfo>();
+            vitalSignsTiming = 0;
+            isFinish = false;
+            vitalSignsTimer.Elapsed += new System.Timers.ElapsedEventHandler(vitalSignsExtract);
+            vitalSignsTimer.Interval = 1000;
         }
 
         /// <summary>
@@ -67,7 +81,7 @@ namespace RFIDIntegratedApplication
             _tagTableForm = new TagTableForm();
             _rssiGraphForm = new RSSIGraphFrom();
             _phaseGraphForm = new PhaseGraphForm();
-            _vitalSignsForm = new VitalSignsForm();
+            _vitalSignsForm = new VitalSignsForm(this);
 
             _sortingBooksForm = new SortingBooksForm();
             _linearGuideForm = new LinearGuideForm();
@@ -463,6 +477,15 @@ namespace RFIDIntegratedApplication
             }
 
             _tagsTable.AddTagInfo(tagInfo);
+            tagInfoQueue.Enqueue(tagInfo);
+            if (vitalSignsTiming >= 30)
+            {
+                tagInfoQueue.Dequeue();
+            }
+            if (isFinish)
+            {
+                tagInfos = tagInfoQueue.ToList<TagInfo>();
+            }
         }
 
         /// <summary>
@@ -579,6 +602,73 @@ namespace RFIDIntegratedApplication
             ServiceManager.closeService(impinjControlService);
             //    this.UpdateComponentStatus((int)ENUM_ROSpecEventType.Start_Of_ROSpec, SARParameter.IsSimulation);
             StartDequeueThread();
+            //startVitalSignsMonitoring();
+        }
+
+        public void startVitalSignsMonitoring()
+        {
+            //vitalSignsTiming = 0;
+            vitalSignsTimer.Start();
+            vitalSignsTimer.Enabled = true;
+            //vitalSignsTimer.AutoReset = true;
+        }
+
+        public void stopVitalSignsMonitoring()
+        {
+            vitalSignsTimer.Stop();
+        }
+
+        public void vitalSignsExtract(object source,ElapsedEventArgs e)
+        {
+            if (vitalSignsTiming < 30)
+            {
+                vitalSignsTiming++;
+                isFinish = true;
+            }
+            else if(isFinish)
+            {
+                isFinish = false;
+                
+                //MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
+                
+                int count = 0;
+                long[] timestamp = new long[tagInfos.Count];
+                int[] phase = new int[tagInfos.Count];
+                int[] frequency = new int[tagInfos.Count];
+                string[] epc = new string[tagInfos.Count];
+                foreach (TagInfo tagInfo in tagInfos)
+                {
+                    timestamp[count] = (long)tagInfo.TimeStamp;
+                    phase[count] = tagInfo.RawPhase;
+                    frequency[count] = tagInfo.Frequency;
+                    epc[count++] = tagInfo.EPC;
+                }
+             
+                /*
+                IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
+                vitalSignsService.realtimeAnalyze(epc, timestamp, phase, frequency);*/
+                FrequencyTable frequencyTable = new FrequencyTable();
+                frequencyTable.add(17, 71);
+                isFinish = true;
+                ////////////////////
+                ////MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
+                //int count = 0;
+                //string[] epc = new string[tagInfoQueue.Count];
+                //ulong[] timestamp = new ulong[tagInfoQueue.Count];
+                //ushort[] phase = new ushort[tagInfoQueue.Count];
+                //int[] frequency = new int[tagInfoQueue.Count];
+                //foreach (TagInfo tagInfo in tagInfoQueue)
+                //{
+                //    timestamp[count] = tagInfo.TimeStamp;
+                //    phase[count] = tagInfo.RawPhase;
+                //    frequency[count] = tagInfo.Frequency;
+                //    epc[count++] = tagInfo.EPC;
+                //}
+
+                //vitalSignsService.realtimeAnalyze(epc,timestamp,phase,frequency);
+                //ServiceManager.closeService(vitalSignsService);
+            }
+
         }
 
         private void tsbtnStart_Click(object sender, EventArgs e)

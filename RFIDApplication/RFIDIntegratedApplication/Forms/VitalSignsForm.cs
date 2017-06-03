@@ -9,22 +9,33 @@ using System.Text;
 using System.Windows.Forms;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Windows.Forms.DataVisualization.Charting;
-using RFIDIntegratedApplication.ServiceReference4;
+
 using RFIDIntegratedApplication.service;
 using RFIDIntegratedApplication.Forms;
+
+using vitalsigns;
+using MathWorks.MATLAB.NET.Arrays;
+using RFIDIntegratedApplication.ServiceReference4;
 
 namespace RFIDIntegratedApplication
 {
     public partial class VitalSignsForm : DockContent
     {
         private System.Windows.Forms.Timer timer = new Timer() { };
-        private bool _realtime = true;
+        public bool _realtime = true;
         private VitalSignsConfigForm vitalSignsConfigForm;
         public   const  string BREATH_RATE = "呼吸频率";
         public const string HEART_RATE = "心跳频率";
-        public VitalSignsForm()
+        Random ran = new Random();
+        public bool started = true;
+        int breath;
+        int heartbeat;
+        static MainForm _mainform;
+
+        public VitalSignsForm(MainForm mainform)
         {
             InitializeComponent();
+            _mainform = mainform;
             //Create a new curve
             Title titlePhase = new Title("生命体征变化曲线图", Docking.Top);
             titlePhase.Alignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -37,9 +48,10 @@ namespace RFIDIntegratedApplication
              {
                  chart1.Series[BREATH_RATE].Points.AddXY(i, i);
              }*/
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Enabled = true;
+
             
+
+
         }
         public bool isRealtime
         {
@@ -57,8 +69,15 @@ namespace RFIDIntegratedApplication
         {
             //模拟的做一些耗时的操作
             System.Threading.Thread.Sleep(1);
-            chart1.Series[BREATH_RATE].Points.AddXY(count, count);
-            chart1.Series[HEART_RATE].Points.AddXY(count, count+10);
+            //int breath = 17 + ran.Next(-2, 1);
+            //int heartbeat = 70 + ran.Next(-8, 10);
+            chart1.Series[BREATH_RATE].Points.AddXY(count,breath);
+            chart1.Series[HEART_RATE].Points.AddXY(count,heartbeat);
+            //aGauge1.Value = breath;
+            //aGauge2.Value = heartbeat;
+            //breathLabel.Text = breath.ToString();
+            //heartbeatLabel.Text = heartbeat.ToString();
+            updateGauge();
             count++;
         }
 
@@ -134,15 +153,22 @@ namespace RFIDIntegratedApplication
                 System.Threading.Thread.Sleep(15);
             }
         }
-        public void updateGauge(string breathStr, string heartbeatStr)
+        public void updateGauge()
         {
-            breathLabel.Text = breathStr;
-            heartbeatLabel.Text = heartbeatStr;
+            breathLabel.Text = this.breath.ToString();
+            heartbeatLabel.Text = this.heartbeat.ToString();
 
-            int breath,heartbeat;
-            aGauge1.Value = breath = Convert.ToInt32(breathStr, CultureInfo.InvariantCulture.NumberFormat);
-            aGauge2.Value = heartbeat = Convert.ToInt32(heartbeatStr, CultureInfo.InvariantCulture.NumberFormat);
+            //int breath,heartbeat;
+            aGauge1.Value = this.breath;// = Convert.ToInt32(breathStr, CultureInfo.InvariantCulture.NumberFormat);
+            aGauge2.Value = this.heartbeat;// = Convert.ToInt32(heartbeatStr, CultureInfo.InvariantCulture.NumberFormat);
 
+        }
+
+        public void updateBreathAndHeartbeat(int breath, int heartbeat)
+        {
+            this.breath = breath;
+            this.heartbeat = heartbeat;
+            updateGauge();
         }
 
 
@@ -176,6 +202,12 @@ namespace RFIDIntegratedApplication
             _realtime = !_realtime;
             realTimeMonitorToolStripMenuItem.Checked = !realTimeMonitorToolStripMenuItem.Checked;
             importToolStripMenuItem.Enabled = !_realtime;
+            if (!_realtime)
+            {
+                toolStripButton2.Enabled = false;
+                toolStripButton1.Enabled = false;
+                timer.Stop();
+            }
         }
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,18 +219,61 @@ namespace RFIDIntegratedApplication
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                chart1.Series.Clear();
+                chart1.Legends.Clear();
+                addGraphItem(BREATH_RATE);
+                addGraphItem(HEART_RATE);
                 MessageBox.Show(openFileDialog.FileName);
+                /*
+                VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
+                MWCharArray filename = openFileDialog.FileName;
+                MWArray[] argsIn = new MWArray[] { filename };
+                MWArray[] result = new MWArray[3];
+                vitalSignsExtract.offlineVitalSignsExtract(3,ref result,argsIn);
+                double[,] temp = (double[,])result[0].ToArray();
+                int num = temp.GetLength(1);
+                int[] breath = new int[num];
+                int[] heartbeat = new int[num];
+                double[] t = new double[num];
+                for (int i = 0; i < num; i++)
+                {
+                    breath[i] = (int)temp[1, i];
+                    heartbeat[i] = (int)temp[2, i];
+                    t[i] = temp[0, i];
+                }
+                for (int i = 0; i < heartbeat.Length; i++)
+                {
+                    chart1.Series[BREATH_RATE].Points.AddXY(t[i], breath[i]);
+                    chart1.Series[HEART_RATE].Points.AddXY(t[i], heartbeat[i]);
+                }
+                updateBreathAndHeartbeat((int)(MWNumericArray)result[1], (int)(MWNumericArray)result[2]);
+                */
                 IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
                 try
                 {
-                    vitalSignsService.offlineAnalyze(openFileDialog.FileName);
+
+                    //double[,] result = 
+                  
+                    FrequencyInfo frequency = vitalSignsService.offlineAnalyze(openFileDialog.FileName);
+                    int[] heartbeat = frequency.heartbeat;
+                    int[] breath = frequency.breath;
+                    double[] t = frequency.t;
+                    int meanBreath = frequency.meanBreath;
+                    int meanHeartbeat = frequency.meanHeartbeat;
+
+                    for (int i = 0; i < heartbeat.GetLength(1); i++)
+                    {
+                        chart1.Series[BREATH_RATE].Points.AddXY(t[i], breath[i]);
+                        chart1.Series[HEART_RATE].Points.AddXY(t[i], heartbeat[i]);
+                    }
+                    updateBreathAndHeartbeat(meanBreath, meanHeartbeat);
                     ServiceManager.closeService(vitalSignsService);
                 }
                 catch
                 {
                     Console.WriteLine("服务未启动");
                 }
-                
+
             }
         }
 
@@ -213,5 +288,17 @@ namespace RFIDIntegratedApplication
             aGauge1.NeedleType = aGauge1.NeedleType == 0 ? 1 : 0;
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Enabled = true;
+            _mainform.startVitalSignsMonitoring();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            timer.Stop();
+            _mainform.stopVitalSignsMonitoring();
+        }
     }
 }

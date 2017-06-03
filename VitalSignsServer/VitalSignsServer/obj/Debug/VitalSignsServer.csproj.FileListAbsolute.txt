@@ -4,3 +4,29 @@ c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsS
 c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
 c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
 c:\users\anna\documents\visual studio 2017\Projects\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.pdb
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\add.dll
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.dll
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\sub.dll
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\vitalsigns.dll
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.xml
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb
+E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.pdb
+F:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.pdb
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.dll
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\vitalsigns.dll
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.xml
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+D:\RFID53130603\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb

@@ -69,7 +69,7 @@ namespace RFIDIntegratedApplication.service
             }
             return output;
         }
-
+        
         public static IVitalSignsService getOneVitalSignsService()
         {
             return new VitalSignsServiceClient();

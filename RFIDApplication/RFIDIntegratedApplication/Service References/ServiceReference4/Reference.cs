@@ -9,23 +9,134 @@
 //------------------------------------------------------------------------------
 
 namespace RFIDIntegratedApplication.ServiceReference4 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FrequencyInfo", Namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer")]
+    [System.SerializableAttribute()]
+    public partial class FrequencyInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] breathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int[] heartbeatField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int meanBreathField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int meanHeartbeatField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double[] tField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] breath {
+            get {
+                return this.breathField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.breathField, value) != true)) {
+                    this.breathField = value;
+                    this.RaisePropertyChanged("breath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int[] heartbeat {
+            get {
+                return this.heartbeatField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.heartbeatField, value) != true)) {
+                    this.heartbeatField = value;
+                    this.RaisePropertyChanged("heartbeat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int meanBreath {
+            get {
+                return this.meanBreathField;
+            }
+            set {
+                if ((this.meanBreathField.Equals(value) != true)) {
+                    this.meanBreathField = value;
+                    this.RaisePropertyChanged("meanBreath");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int meanHeartbeat {
+            get {
+                return this.meanHeartbeatField;
+            }
+            set {
+                if ((this.meanHeartbeatField.Equals(value) != true)) {
+                    this.meanHeartbeatField = value;
+                    this.RaisePropertyChanged("meanHeartbeat");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double[] t {
+            get {
+                return this.tField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tField, value) != true)) {
+                    this.tField = value;
+                    this.RaisePropertyChanged("t");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference4.IVitalSignsService")]
     public interface IVitalSignsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/realtimeAnalyzeResponse")]
-        void realtimeAnalyze();
+        void realtimeAnalyze(string[] epc, long[] timestamp, int[] phase, int[] frequency);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/realtimeAnalyzeResponse")]
-        System.Threading.Tasks.Task realtimeAnalyzeAsync();
+        System.Threading.Tasks.Task realtimeAnalyzeAsync(string[] epc, long[] timestamp, int[] phase, int[] frequency);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/offlineAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/offlineAnalyzeResponse")]
-        void offlineAnalyze(string fileName);
+        RFIDIntegratedApplication.ServiceReference4.FrequencyInfo offlineAnalyze(string fileName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/offlineAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/offlineAnalyzeResponse")]
-        System.Threading.Tasks.Task offlineAnalyzeAsync(string fileName);
+        System.Threading.Tasks.Task<RFIDIntegratedApplication.ServiceReference4.FrequencyInfo> offlineAnalyzeAsync(string fileName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,19 +166,19 @@ namespace RFIDIntegratedApplication.ServiceReference4 {
                 base(binding, remoteAddress) {
         }
         
-        public void realtimeAnalyze() {
-            base.Channel.realtimeAnalyze();
+        public void realtimeAnalyze(string[] epc, long[] timestamp, int[] phase, int[] frequency) {
+            base.Channel.realtimeAnalyze(epc, timestamp, phase, frequency);
         }
         
-        public System.Threading.Tasks.Task realtimeAnalyzeAsync() {
-            return base.Channel.realtimeAnalyzeAsync();
+        public System.Threading.Tasks.Task realtimeAnalyzeAsync(string[] epc, long[] timestamp, int[] phase, int[] frequency) {
+            return base.Channel.realtimeAnalyzeAsync(epc, timestamp, phase, frequency);
         }
         
-        public void offlineAnalyze(string fileName) {
-            base.Channel.offlineAnalyze(fileName);
+        public RFIDIntegratedApplication.ServiceReference4.FrequencyInfo offlineAnalyze(string fileName) {
+            return base.Channel.offlineAnalyze(fileName);
         }
         
-        public System.Threading.Tasks.Task offlineAnalyzeAsync(string fileName) {
+        public System.Threading.Tasks.Task<RFIDIntegratedApplication.ServiceReference4.FrequencyInfo> offlineAnalyzeAsync(string fileName) {
             return base.Channel.offlineAnalyzeAsync(fileName);
         }
     }
