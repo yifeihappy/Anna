@@ -339,3 +339,5 @@ D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug
 D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.dll
 D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\vitalsigns.dll
 D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
+F:\rfid实验室\丁峰\呼吸项目\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Forms.VitalSignsConfigForm.resources
+F:\rfid实验室\丁峰\呼吸项目\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\vitalsigns.dll

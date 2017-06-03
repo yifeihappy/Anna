@@ -16,15 +16,16 @@ using RFIDIntegratedApplication.Forms;
 using vitalsigns;
 using MathWorks.MATLAB.NET.Arrays;
 using RFIDIntegratedApplication.ServiceReference4;
+using System.Threading;
 
 namespace RFIDIntegratedApplication
 {
     public partial class VitalSignsForm : DockContent
     {
-        private System.Windows.Forms.Timer timer = new Timer() { };
+        private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
         public bool _realtime = true;
         private VitalSignsConfigForm vitalSignsConfigForm;
-        public   const  string BREATH_RATE = "呼吸频率";
+        public const string BREATH_RATE = "呼吸频率";
         public const string HEART_RATE = "心跳频率";
         Random ran = new Random();
         public bool started = true;
@@ -49,7 +50,7 @@ namespace RFIDIntegratedApplication
                  chart1.Series[BREATH_RATE].Points.AddXY(i, i);
              }*/
 
-            
+
 
 
         }
@@ -64,15 +65,15 @@ namespace RFIDIntegratedApplication
                 _realtime = value;
             }
         }
-        private int count=0;
+        private int count = 0;
         void timer_Tick(object sender, EventArgs e)
         {
             //模拟的做一些耗时的操作
             System.Threading.Thread.Sleep(1);
             //int breath = 17 + ran.Next(-2, 1);
             //int heartbeat = 70 + ran.Next(-8, 10);
-            chart1.Series[BREATH_RATE].Points.AddXY(count,breath);
-            chart1.Series[HEART_RATE].Points.AddXY(count,heartbeat);
+            chart1.Series[BREATH_RATE].Points.AddXY(count, breath);
+            chart1.Series[HEART_RATE].Points.AddXY(count, heartbeat);
             //aGauge1.Value = breath;
             //aGauge2.Value = heartbeat;
             //breathLabel.Text = breath.ToString();
@@ -124,7 +125,7 @@ namespace RFIDIntegratedApplication
                     breathLabel.BackColor = Color.Orange;
                     break;
             }
-    
+
 
         }
 
@@ -182,7 +183,7 @@ namespace RFIDIntegratedApplication
 
         }
 
-        public void updatePhase(string key,int data)
+        public void updatePhase(string key, int data)
         {
 
         }
@@ -248,32 +249,42 @@ namespace RFIDIntegratedApplication
                 }
                 updateBreathAndHeartbeat((int)(MWNumericArray)result[1], (int)(MWNumericArray)result[2]);
                 */
+                filename = openFileDialog.FileName;
+                Thread thread = new Thread(offlineAnlyzeProcess);
+                thread.Start();
+
+
+            }
+        }
+
+        private volatile string filename;
+        private void offlineAnlyzeProcess()
+        {
+            try
+            {
+                //double[,] result = 
                 IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
-                try
+                FrequencyInfo frequency = vitalSignsService.offlineAnalyze(filename);
+                ServiceManager.closeService(vitalSignsService);
+                int[] heartbeat = frequency.heartbeat;
+                int[] breath = frequency.breath;
+                double[] t = frequency.t;
+                int meanBreath = frequency.meanBreath;
+                int meanHeartbeat = frequency.meanHeartbeat;
+                this.BeginInvoke(method: new Action(() =>
                 {
-
-                    //double[,] result = 
-                  
-                    FrequencyInfo frequency = vitalSignsService.offlineAnalyze(openFileDialog.FileName);
-                    int[] heartbeat = frequency.heartbeat;
-                    int[] breath = frequency.breath;
-                    double[] t = frequency.t;
-                    int meanBreath = frequency.meanBreath;
-                    int meanHeartbeat = frequency.meanHeartbeat;
-
-                    for (int i = 0; i < heartbeat.GetLength(1); i++)
+                    for (int i = 0; i < heartbeat.Length; i++)
                     {
                         chart1.Series[BREATH_RATE].Points.AddXY(t[i], breath[i]);
                         chart1.Series[HEART_RATE].Points.AddXY(t[i], heartbeat[i]);
                     }
                     updateBreathAndHeartbeat(meanBreath, meanHeartbeat);
-                    ServiceManager.closeService(vitalSignsService);
-                }
-                catch
-                {
-                    Console.WriteLine("服务未启动");
-                }
-
+                }));
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("服务调用失败" + ex.ToString());
             }
         }
 
@@ -299,6 +310,11 @@ namespace RFIDIntegratedApplication
         {
             timer.Stop();
             _mainform.stopVitalSignsMonitoring();
+        }
+
+        private void aGauge2_ValueInRangeChanged(object sender, AGauge.ValueInRangeChangedEventArgs e)
+        {
+
         }
     }
 }
