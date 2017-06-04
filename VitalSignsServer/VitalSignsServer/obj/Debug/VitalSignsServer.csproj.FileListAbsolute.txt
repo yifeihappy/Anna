@@ -10,7 +10,6 @@ E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\add.dll
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.dll
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\sub.dll
-E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\vitalsigns.dll
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\MWArray.xml
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb

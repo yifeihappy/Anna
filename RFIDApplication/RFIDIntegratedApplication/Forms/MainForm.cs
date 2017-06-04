@@ -47,9 +47,9 @@ namespace RFIDIntegratedApplication
         DateTime _startTime;                   //Record Inventory time
         Queue<ServiceReference1.TagInfo> tagInfoQueue;           //Store tag infos in latest 30s 
         int vitalSignsTiming;       //false
-        int saveTiming;
         bool isFinish;
         System.Timers.Timer vitalSignsTimer = new System.Timers.Timer();
+        System.Timers.Timer regularSaveTimer;
         FrequencyTable frequencyTable;
 
         List<TagInfo> tagInfos;
@@ -68,10 +68,13 @@ namespace RFIDIntegratedApplication
             _tagsQueue = new ConcurrentQueue<TagInfo>();
             _tagsTable = new TagsTable();
             tagInfoQueue = new Queue<TagInfo>();
-            vitalSignsTiming = saveTiming = 0;
+            vitalSignsTiming  = 0;
             isFinish = false;
             vitalSignsTimer.Elapsed += new System.Timers.ElapsedEventHandler(vitalSignsExtract);
             vitalSignsTimer.Interval = 1000;
+            regularSaveTimer = new System.Timers.Timer();
+            regularSaveTimer.Elapsed += new System.Timers.ElapsedEventHandler(regularSave);
+            regularSaveTimer.Interval = 60*60000;
         }
 
         /// <summary>
@@ -616,6 +619,23 @@ namespace RFIDIntegratedApplication
             //vitalSignsTimer.AutoReset = true;
         }
 
+        public void startRegularSaving()
+        {
+            regularSaveTimer.Start();
+        }
+
+        public void stopRegularSaving()
+        {
+            regularSaveTimer.Stop();
+        }
+
+        public void regularSave(object source, ElapsedEventArgs e)
+        {
+            String filename = Path.Combine("../../../record/", DateTime.Now.ToString("yyyy_MM_dd_hh") + "_record.csv");
+            CSVFileHelper.SaveCSV(frequencyTable.frequencies, filename);
+            frequencyTable.clear();
+        }
+
         public void stopVitalSignsMonitoring()
         {
             vitalSignsTimer.Stop();
@@ -623,16 +643,7 @@ namespace RFIDIntegratedApplication
 
         public void vitalSignsExtract(object source,ElapsedEventArgs e)
         {
-            saveTiming++;
-            if (saveTiming >= 60)
-            {
-                saveTiming = 0;
-                String filename = Path.Combine("../../../record/", DateTime.Now.ToString("yyyy_MM_dd_hh") + "_record.csv");
-                CSVFileHelper.SaveCSV(frequencyTable.frequencies,filename);
-                frequencyTable.clear();
-                
-         
-            }
+ 
             if (vitalSignsTiming < 30)
             {
                 vitalSignsTiming++;

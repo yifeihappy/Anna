@@ -37,7 +37,6 @@
             this.aGauge1 = new RFIDIntegratedApplication.AGauge();
             this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.warningPicBox = new System.Windows.Forms.PictureBox();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
@@ -45,6 +44,8 @@
             this.changeNeedleType = new System.Windows.Forms.ToolStripMenuItem();
             this.realTimeMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
+            this.warningPicBox = new System.Windows.Forms.PictureBox();
+            this.regularSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningPicBox)).BeginInit();
@@ -53,7 +54,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label1.Location = new System.Drawing.Point(126, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
@@ -64,7 +65,7 @@
             // 
             this.breathLabel.BackColor = System.Drawing.Color.LightGreen;
             this.breathLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.breathLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.breathLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.breathLabel.Location = new System.Drawing.Point(140, 83);
             this.breathLabel.Name = "breathLabel";
             this.breathLabel.Size = new System.Drawing.Size(50, 22);
@@ -76,7 +77,7 @@
             // 
             this.heartbeatLabel.BackColor = System.Drawing.Color.LightGreen;
             this.heartbeatLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.heartbeatLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.heartbeatLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.heartbeatLabel.Location = new System.Drawing.Point(595, 83);
             this.heartbeatLabel.Name = "heartbeatLabel";
             this.heartbeatLabel.Size = new System.Drawing.Size(50, 22);
@@ -87,7 +88,7 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.label3.Location = new System.Drawing.Point(471, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 33);
@@ -176,7 +177,7 @@
         ""};
             this.aGauge1.CapText = "次/分钟";
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.aGauge1.Location = new System.Drawing.Point(64, 143);
             this.aGauge1.MaxValue = 30F;
             this.aGauge1.MinValue = 0F;
@@ -284,7 +285,7 @@
         ""};
             this.aGauge2.CapText = "次/分钟";
             this.aGauge2.Center = new System.Drawing.Point(150, 180);
-            this.aGauge2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.aGauge2.Location = new System.Drawing.Point(468, 125);
             this.aGauge2.MaxValue = 160F;
             this.aGauge2.MinValue = 40F;
@@ -376,17 +377,6 @@
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
-
-            // warningPicBox
-            // 
-            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning;
-            this.warningPicBox.Location = new System.Drawing.Point(349, 66);
-            this.warningPicBox.Name = "warningPicBox";
-            this.warningPicBox.Size = new System.Drawing.Size(40, 57);
-            this.warningPicBox.TabIndex = 26;
-            this.warningPicBox.TabStop = false;
-            // 
-
             // toolStripButton2
             // 
             this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
@@ -409,7 +399,8 @@
             // 
             this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.settingToolStripMenuItem,
-            this.realTimeMonitorToolStripMenuItem});
+            this.realTimeMonitorToolStripMenuItem,
+            this.regularSaveToolStripMenuItem});
             this.toolStripSplitButton1.Image = global::RFIDIntegratedApplication.Properties.Resources.settings;
             this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripSplitButton1.Name = "toolStripSplitButton1";
@@ -421,7 +412,7 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeNeedleType});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingToolStripMenuItem.Text = "外观";
             // 
             // changeNeedleType
@@ -436,7 +427,7 @@
             this.realTimeMonitorToolStripMenuItem.Checked = true;
             this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
-            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
             this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
             // 
@@ -449,7 +440,23 @@
             this.importToolStripMenuItem.Text = "导入";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
-
+            // warningPicBox
+            // 
+            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning;
+            this.warningPicBox.Location = new System.Drawing.Point(387, 67);
+            this.warningPicBox.Name = "warningPicBox";
+            this.warningPicBox.Size = new System.Drawing.Size(40, 57);
+            this.warningPicBox.TabIndex = 26;
+            this.warningPicBox.TabStop = false;
+            this.warningPicBox.Click += new System.EventHandler(this.warningPicBox_Click);
+            // 
+            // regularSaveToolStripMenuItem
+            // 
+            this.regularSaveToolStripMenuItem.Name = "regularSaveToolStripMenuItem";
+            this.regularSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.regularSaveToolStripMenuItem.Text = "定时离线";
+            this.regularSaveToolStripMenuItem.Click += new System.EventHandler(this.regularSaveToolStripMenuItem_Click);
+            // 
             // VitalSignsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -465,7 +472,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "VitalSignsForm";
             this.Text = " Vital Signs";
             this.Load += new System.EventHandler(this.VitalSignsForm_Load);
@@ -496,5 +503,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.PictureBox warningPicBox;
+        private System.Windows.Forms.ToolStripMenuItem regularSaveToolStripMenuItem;
     }
 }

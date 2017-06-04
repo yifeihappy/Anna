@@ -1,4 +1,4 @@
-﻿F:\rfid实验室\丁峰\修改后文件\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe.config
+F:\rfid实验室\丁峰\修改后文件\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe.config
 F:\rfid实验室\丁峰\修改后文件\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe
 F:\rfid实验室\丁峰\修改后文件\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.pdb
 F:\rfid实验室\丁峰\修改后文件\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\LLRP.dll
@@ -287,7 +287,6 @@ C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\ob
 C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.exe
 C:\Users\Anna\Documents\github\rfid\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.pdb
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.Forms.VitalSignsConfigForm.resources
-E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\vitalsigns.dll
 F:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe.config
 F:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.exe
 F:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.pdb
@@ -341,4 +340,3 @@ D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug
 D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.dll
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
-

@@ -23,7 +23,8 @@ namespace RFIDIntegratedApplication
     public partial class VitalSignsForm : DockContent
     {
         private System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-        public bool _realtime = true;
+        private bool _realtime = true;
+        public bool regularSave = true;
         private VitalSignsConfigForm vitalSignsConfigForm;
         public const string BREATH_RATE = "呼吸频率";
         public const string HEART_RATE = "心跳频率";
@@ -54,7 +55,9 @@ namespace RFIDIntegratedApplication
             this.toolStripButton1.Enabled = false;
             this.toolStripButton2.Enabled = false;
             realTimeMonitorToolStripMenuItem.Checked = false;
-            realTimeMonitorToolStripMenuItem.Enabled = false;
+            //realTimeMonitorToolStripMenuItem.Enabled = false;
+            regularSaveToolStripMenuItem.Checked = true;
+            regularSaveToolStripMenuItem.Enabled = false;
             importToolStripMenuItem.Enabled = true;
             //Create a new curve
             Title titlePhase = new Title("生命体征变化曲线图", Docking.Top);
@@ -219,14 +222,15 @@ namespace RFIDIntegratedApplication
 
         private void realTimeMonitorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _realtime = !_realtime;
             realTimeMonitorToolStripMenuItem.Checked = !realTimeMonitorToolStripMenuItem.Checked;
             importToolStripMenuItem.Enabled = !_realtime;
             toolStripButton2.Enabled = !toolStripButton2.Enabled;
+            regularSaveToolStripMenuItem.Enabled = !regularSaveToolStripMenuItem.Enabled;
             //toolStripButton1.Enabled = !toolStripButton1.Enabled;
             if (!_realtime)
             {
                 timer.Stop();
+
             }
         }
 
@@ -327,19 +331,53 @@ namespace RFIDIntegratedApplication
             timer.Tick += new EventHandler(timer_Tick);
             timer.Enabled = true;
             _mainform.startVitalSignsMonitoring();
+            if (regularSave)
+            {
+                _mainform.startRegularSaving();
+            }
+            regularSaveToolStripMenuItem.Enabled = false;
+            realTimeMonitorToolStripMenuItem.Enabled = false;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             toolStripButton2.Enabled = true;
             toolStripButton1.Enabled = false;
+            regularSaveToolStripMenuItem.Enabled = true;
+            realTimeMonitorToolStripMenuItem.Enabled = true;
             timer.Stop();
             _mainform.stopVitalSignsMonitoring();
+            if (regularSave)
+            {
+                _mainform.stopRegularSaving();
+            }
         }
 
         private void aGauge2_ValueInRangeChanged(object sender, AGauge.ValueInRangeChangedEventArgs e)
         {
 
         }
+
+        private void warningPicBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void regularSaveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            regularSave = !regularSave;
+            regularSaveToolStripMenuItem.Checked = !regularSaveToolStripMenuItem.Checked;
+            /*
+            if (regularSave)
+            {
+                _mainform.startRegularSaving();
+            }
+            else
+            {
+                _mainform.stopRegularSaving();
+            }*/
+        }
+        private void updateRegularSaving() { 
+}
     }
 }
