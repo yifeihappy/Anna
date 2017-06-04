@@ -53,7 +53,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.label1.Location = new System.Drawing.Point(126, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
@@ -64,7 +64,7 @@
             // 
             this.breathLabel.BackColor = System.Drawing.Color.LightGreen;
             this.breathLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.breathLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.breathLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.breathLabel.Location = new System.Drawing.Point(140, 83);
             this.breathLabel.Name = "breathLabel";
             this.breathLabel.Size = new System.Drawing.Size(50, 22);
@@ -76,7 +76,7 @@
             // 
             this.heartbeatLabel.BackColor = System.Drawing.Color.LightGreen;
             this.heartbeatLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.heartbeatLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.heartbeatLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.heartbeatLabel.Location = new System.Drawing.Point(595, 83);
             this.heartbeatLabel.Name = "heartbeatLabel";
             this.heartbeatLabel.Size = new System.Drawing.Size(50, 22);
@@ -87,7 +87,7 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.label3.Location = new System.Drawing.Point(471, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 33);
@@ -176,7 +176,7 @@
         ""};
             this.aGauge1.CapText = "次/分钟";
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.aGauge1.Location = new System.Drawing.Point(64, 143);
             this.aGauge1.MaxValue = 30F;
             this.aGauge1.MinValue = 0F;
@@ -284,7 +284,7 @@
         ""};
             this.aGauge2.CapText = "次/分钟";
             this.aGauge2.Center = new System.Drawing.Point(150, 180);
-            this.aGauge2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.aGauge2.Location = new System.Drawing.Point(468, 125);
             this.aGauge2.MaxValue = 160F;
             this.aGauge2.MinValue = 40F;
@@ -361,6 +361,7 @@
             this.aGauge2.TabIndex = 8;
             this.aGauge2.Text = "aGauge4";
             this.aGauge2.Value = 70F;
+            this.aGauge2.ValueInRangeChanged += new RFIDIntegratedApplication.AGauge.ValueInRangeChangedDelegate(this.aGauge2_ValueInRangeChanged);
             // 
             // toolStrip1
             // 
@@ -375,6 +376,7 @@
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
+
             // warningPicBox
             // 
             this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning;
@@ -384,6 +386,7 @@
             this.warningPicBox.TabIndex = 26;
             this.warningPicBox.TabStop = false;
             // 
+
             // toolStripButton2
             // 
             this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
@@ -446,6 +449,7 @@
             this.importToolStripMenuItem.Text = "导入";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
+
             // VitalSignsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -461,7 +465,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "VitalSignsForm";
             this.Text = " Vital Signs";
             this.Load += new System.EventHandler(this.VitalSignsForm_Load);

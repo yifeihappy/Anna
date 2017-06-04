@@ -55,7 +55,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="vitalsigns, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>E:\交大\Script\new\offlineVitalSignsExtract\for_redistribution_files_only\vitalsigns.dll</HintPath>
+      <HintPath>..\..\..\..\RFIDApplication\RFIDApplication\RFIDIntegratedApplication\vitalsigns.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

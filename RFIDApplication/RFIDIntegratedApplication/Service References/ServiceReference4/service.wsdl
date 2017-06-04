@@ -92,7 +92,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ZEBRAAAAAA\Anna</Upn>
+          <Upn>DINGFENG\FD</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
