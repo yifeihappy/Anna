@@ -37,6 +37,7 @@
             this.aGauge1 = new RFIDIntegratedApplication.AGauge();
             this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.warningPicBox = new System.Windows.Forms.PictureBox();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
@@ -46,6 +47,7 @@
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPicBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -373,6 +375,15 @@
             this.toolStrip1.TabIndex = 25;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // warningPicBox
+            // 
+            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning;
+            this.warningPicBox.Location = new System.Drawing.Point(349, 66);
+            this.warningPicBox.Name = "warningPicBox";
+            this.warningPicBox.Size = new System.Drawing.Size(40, 57);
+            this.warningPicBox.TabIndex = 26;
+            this.warningPicBox.TabStop = false;
+            // 
             // toolStripButton2
             // 
             this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
@@ -407,13 +418,13 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeNeedleType});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.settingToolStripMenuItem.Text = "外观";
             // 
             // changeNeedleType
             // 
             this.changeNeedleType.Name = "changeNeedleType";
-            this.changeNeedleType.Size = new System.Drawing.Size(152, 22);
+            this.changeNeedleType.Size = new System.Drawing.Size(148, 22);
             this.changeNeedleType.Text = "改变表针形状";
             this.changeNeedleType.Click += new System.EventHandler(this.changeNeedleType_Click);
             // 
@@ -422,7 +433,7 @@
             this.realTimeMonitorToolStripMenuItem.Checked = true;
             this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
-            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
             this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
             // 
@@ -441,6 +452,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(821, 573);
+            this.Controls.Add(this.warningPicBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.heartbeatLabel);
@@ -456,6 +468,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningPicBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +491,6 @@
         private System.Windows.Forms.ToolStripMenuItem realTimeMonitorToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.PictureBox warningPicBox;
     }
 }

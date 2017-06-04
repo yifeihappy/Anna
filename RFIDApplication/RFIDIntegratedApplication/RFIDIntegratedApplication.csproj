@@ -435,6 +435,8 @@
     <None Include="Resources\VitalSign.jpg" />
     <None Include="Resources\import.png" />
     <None Include="Resources\config.png" />
+    <None Include="Resources\预警1.png" />
+    <None Include="Resources\warning.png" />
     <Content Include="rfid.ico" />
     <None Include="Service References\ServiceReference3\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
