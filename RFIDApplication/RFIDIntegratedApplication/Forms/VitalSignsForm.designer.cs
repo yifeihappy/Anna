@@ -43,9 +43,10 @@
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeNeedleType = new System.Windows.Forms.ToolStripMenuItem();
             this.realTimeMonitorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regularSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.warningPicBox = new System.Windows.Forms.PictureBox();
-            this.regularSaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.warningLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningPicBox)).BeginInit();
@@ -126,7 +127,7 @@
             chartArea1.AxisY.MajorTickMark.Interval = 0D;
             chartArea1.AxisY.Maximum = 200D;
             chartArea1.AxisY.Minimum = 0D;
-            chartArea1.AxisY.Title = "次/分钟";
+            chartArea1.AxisY.Title = "瞬时频率(次/分钟)";
             chartArea1.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.CursorX.IsUserEnabled = true;
             chartArea1.CursorX.IsUserSelectionEnabled = true;
@@ -412,7 +413,7 @@
             this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.changeNeedleType});
             this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.settingToolStripMenuItem.Text = "外观";
             // 
             // changeNeedleType
@@ -427,9 +428,16 @@
             this.realTimeMonitorToolStripMenuItem.Checked = true;
             this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
-            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
             this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
+            // 
+            // regularSaveToolStripMenuItem
+            // 
+            this.regularSaveToolStripMenuItem.Name = "regularSaveToolStripMenuItem";
+            this.regularSaveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.regularSaveToolStripMenuItem.Text = "定时离线";
+            this.regularSaveToolStripMenuItem.Click += new System.EventHandler(this.regularSaveToolStripMenuItem_Click);
             // 
             // importToolStripMenuItem
             // 
@@ -442,7 +450,7 @@
             // 
             // warningPicBox
             // 
-            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning;
+            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning1;
             this.warningPicBox.Location = new System.Drawing.Point(387, 67);
             this.warningPicBox.Name = "warningPicBox";
             this.warningPicBox.Size = new System.Drawing.Size(40, 57);
@@ -450,19 +458,24 @@
             this.warningPicBox.TabStop = false;
             this.warningPicBox.Click += new System.EventHandler(this.warningPicBox_Click);
             // 
-            // regularSaveToolStripMenuItem
+            // warningLabel
             // 
-            this.regularSaveToolStripMenuItem.Name = "regularSaveToolStripMenuItem";
-            this.regularSaveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.regularSaveToolStripMenuItem.Text = "定时离线";
-            this.regularSaveToolStripMenuItem.Click += new System.EventHandler(this.regularSaveToolStripMenuItem_Click);
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.warningLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.warningLabel.Location = new System.Drawing.Point(21, 25);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(37, 20);
+            this.warningLabel.TabIndex = 27;
+            this.warningLabel.Text = "正常";
             // 
             // VitalSignsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(821, 573);
+            this.ClientSize = new System.Drawing.Size(821, 445);
+            this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.warningPicBox);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.chart1);
@@ -504,5 +517,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.PictureBox warningPicBox;
         private System.Windows.Forms.ToolStripMenuItem regularSaveToolStripMenuItem;
+        private System.Windows.Forms.Label warningLabel;
     }
 }

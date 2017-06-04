@@ -22,17 +22,17 @@ namespace VitalSignsServer
     public class FrequencyInfo
     {
         [DataMember]
-        public int[] breath { get; set; }
+        public double[] breath { get; set; }
         [DataMember]
-        public int[] heartbeat { get; set; }
+        public double[] heartbeat { get; set; }
         [DataMember]
         public double[] t;
         [DataMember]
-        public int meanBreath;
+        public double meanBreath;
         [DataMember]
-        public int meanHeartbeat;
+        public double meanHeartbeat;
 
-        public FrequencyInfo(int[]breath,int[] heartbeat,double[]t,int meanBreath,int meanHeartbeat)
+        public FrequencyInfo(double[]breath,double[] heartbeat,double[]t,double meanBreath,double meanHeartbeat)
         {
             this.breath = breath;
             this.heartbeat = heartbeat;

@@ -30,8 +30,9 @@ namespace RFIDIntegratedApplication
         public const string HEART_RATE = "心跳频率";
         Random ran = new Random();
         public bool started = true;
-        int breath;
-        int heartbeat;
+        double breath;
+        double heartbeat;
+        int fail;
         static MainForm _mainform;
         public void enableRealTime()
         {
@@ -52,6 +53,7 @@ namespace RFIDIntegratedApplication
         {
             InitializeComponent();
             _mainform = mainform;
+            _realtime = false;
             this.toolStripButton1.Enabled = false;
             this.toolStripButton2.Enabled = false;
             realTimeMonitorToolStripMenuItem.Checked = false;
@@ -94,13 +96,14 @@ namespace RFIDIntegratedApplication
             System.Threading.Thread.Sleep(1);
             //int breath = 17 + ran.Next(-2, 1);
             //int heartbeat = 70 + ran.Next(-8, 10);
-            chart1.Series[BREATH_RATE].Points.AddXY(count, breath);
-            chart1.Series[HEART_RATE].Points.AddXY(count, heartbeat);
+            chart1.Series[BREATH_RATE].Points.AddXY(count/1000, breath);
+            chart1.Series[HEART_RATE].Points.AddXY(count/1000, heartbeat);
             //aGauge1.Value = breath;
             //aGauge2.Value = heartbeat;
             //breathLabel.Text = breath.ToString();
             //heartbeatLabel.Text = heartbeat.ToString();
-            //updateGauge();
+            updateGauge();
+            updateWarningLabel();
             count++;
         }
 
@@ -156,7 +159,28 @@ namespace RFIDIntegratedApplication
 
         }
 
-
+        public void updateWarningLabel()
+        {
+            switch (fail)
+            {
+                case 3:
+                    warningPicBox.Image = Properties.Resources.warning2;
+                    warningLabel.Text = "呼吸暂停";
+                    break;
+                case 2:
+                    warningPicBox.Image = Properties.Resources.warning2;
+                    warningLabel.Text = "信号太弱";
+                    break;
+                case 1:
+                    warningPicBox.Image = Properties.Resources.warning2;
+                    warningLabel.Text = "请保持静止";
+                    break;
+                default:
+                    warningPicBox.Image = Properties.Resources.warning1;
+                    warningLabel.Text = "正常";
+                    break;
+            }
+        }
 
 
         private void shake()
@@ -182,16 +206,24 @@ namespace RFIDIntegratedApplication
             heartbeatLabel.Text = this.heartbeat.ToString();
 
             //int breath,heartbeat;
-            aGauge1.Value = this.breath;// = Convert.ToInt32(breathStr, CultureInfo.InvariantCulture.NumberFormat);
-            aGauge2.Value = this.heartbeat;// = Convert.ToInt32(heartbeatStr, CultureInfo.InvariantCulture.NumberFormat);
+            aGauge1.Value = (int)this.breath;// = Convert.ToInt32(breathStr, CultureInfo.InvariantCulture.NumberFormat);
+            aGauge2.Value = (int)this.heartbeat;// = Convert.ToInt32(heartbeatStr, CultureInfo.InvariantCulture.NumberFormat);
 
         }
 
-        public void updateBreathAndHeartbeat(int breath, int heartbeat)
+        public void updateBreathHeartbeatFail(double breath, double heartbeat,int fail)
+        {
+            updateBreathAndHeartbeat(breath, heartbeat);
+            this.fail = fail;
+          
+         
+        }
+
+        private void updateBreathAndHeartbeat(double breath, double heartbeat)
         {
             this.breath = breath;
             this.heartbeat = heartbeat;
-            updateGauge();
+            
         }
 
 
@@ -222,16 +254,25 @@ namespace RFIDIntegratedApplication
 
         private void realTimeMonitorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _realtime = !_realtime;
             realTimeMonitorToolStripMenuItem.Checked = !realTimeMonitorToolStripMenuItem.Checked;
             importToolStripMenuItem.Enabled = !_realtime;
             toolStripButton2.Enabled = !toolStripButton2.Enabled;
             regularSaveToolStripMenuItem.Enabled = !regularSaveToolStripMenuItem.Enabled;
-            //toolStripButton1.Enabled = !toolStripButton1.Enabled;
+            toolStripButton1.Enabled = !toolStripButton1.Enabled;
             if (!_realtime)
             {
                 timer.Stop();
 
             }
+        }
+
+        private void clearChart()
+        {
+            chart1.Series.Clear();
+            chart1.Legends.Clear();
+            addGraphItem(BREATH_RATE);
+            addGraphItem(HEART_RATE);
         }
 
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
@@ -243,11 +284,9 @@ namespace RFIDIntegratedApplication
             openFileDialog.FilterIndex = 1;
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                chart1.Series.Clear();
-                chart1.Legends.Clear();
-                addGraphItem(BREATH_RATE);
-                addGraphItem(HEART_RATE);
-                MessageBox.Show(openFileDialog.FileName);
+                //clearChart();
+
+                MessageBox.Show("已选择："+openFileDialog.FileName);
                 
                 /*VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
                 MWCharArray filename = openFileDialog.FileName;
@@ -289,11 +328,11 @@ namespace RFIDIntegratedApplication
                 IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
                 FrequencyInfo frequency = vitalSignsService.offlineAnalyze(filename);
                 ServiceManager.closeService(vitalSignsService);
-                int[] heartbeat = frequency.heartbeat;
-                int[] breath = frequency.breath;
+                double[] heartbeat = frequency.heartbeat;
+                double[] breath = frequency.breath;
                 double[] t = frequency.t;
-                int meanBreath = frequency.meanBreath;
-                int meanHeartbeat = frequency.meanHeartbeat;
+                double meanBreath = frequency.meanBreath;
+                double meanHeartbeat = frequency.meanHeartbeat;
                 this.BeginInvoke(method: new Action(() =>
                 {
                     for (int i = 0; i < heartbeat.Length; i++)
@@ -302,6 +341,7 @@ namespace RFIDIntegratedApplication
                         chart1.Series[HEART_RATE].Points.AddXY(t[i], heartbeat[i]);
                     }
                     updateBreathAndHeartbeat(meanBreath, meanHeartbeat);
+                    updateGauge();
                 }));
                 
             }
@@ -335,6 +375,8 @@ namespace RFIDIntegratedApplication
             {
                 _mainform.startRegularSaving();
             }
+            //clearChart();
+            updateBreathAndHeartbeat(0, 0);
             regularSaveToolStripMenuItem.Enabled = false;
             realTimeMonitorToolStripMenuItem.Enabled = false;
         }
@@ -377,7 +419,7 @@ namespace RFIDIntegratedApplication
                 _mainform.stopRegularSaving();
             }*/
         }
-        private void updateRegularSaving() { 
-}
+
+
     }
 }

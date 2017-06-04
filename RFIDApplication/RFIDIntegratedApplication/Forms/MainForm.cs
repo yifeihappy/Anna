@@ -24,7 +24,7 @@ using RFIDIntegratedApplication.ServiceReference3;
 using RFIDIntegratedApplication.Forms;
 using System.Timers;
 using vitalsigns;
-
+using RFIDIntegratedApplication.ServiceReference4;
 
 namespace RFIDIntegratedApplication
 {
@@ -652,28 +652,22 @@ namespace RFIDIntegratedApplication
             else if(isFinish)
             {
                 isFinish = false;
-                
+
                 //MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
                 ///////////////////
-               /* int count = 0;
-                long[] timestamp = new long[tagInfos.Count];
-                int[] phase = new int[tagInfos.Count];
-                int[] frequency = new int[tagInfos.Count];
-                string[] epc = new string[tagInfos.Count];
-                foreach (TagInfo tagInfo in tagInfos)
-                {
-                    timestamp[count] = (long)tagInfo.TimeStamp;
-                    phase[count] = tagInfo.RawPhase;
-                    frequency[count] = tagInfo.Frequency;
-                    epc[count++] = tagInfo.EPC;
-                }*/
-             
-                /*
-                IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
-                vitalSignsService.realtimeAnalyze(epc, timestamp, phase, frequency);*/
+                realtimeAnalyze();   
+              
 
-                frequencyTable.add(17, 71);
+
+                /*test
+                Random ran = new Random((int)DateTime.Now.Ticks);
+                double breath = 17 + ran.Next(-1, 1)*1.1;
+                double heartbeat = 71 + ran.Next(-4, 4)*1.1;
+                _vitalSignsForm.updateBreathHeartbeatFail(breath,heartbeat, 1);
+                frequencyTable.add(breath, heartbeat, DateTime.Now.ToString("hh:mm:ss"));
                 isFinish = true;
+                */
+
                 ////////////////////
                 ////MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
                 //int count = 0;
@@ -693,6 +687,24 @@ namespace RFIDIntegratedApplication
                 //ServiceManager.closeService(vitalSignsService);
             }
 
+        }
+
+        public void realtimeAnalyze()
+        {
+            int count = 0;
+            long[] timestamp = new long[tagInfos.Count];
+            int[] phase = new int[tagInfos.Count];
+            int[] frequency = new int[tagInfos.Count];
+            string[] epc = new string[tagInfos.Count];
+            foreach (TagInfo tagInfo in tagInfos)
+            {
+                timestamp[count] = (long)tagInfo.TimeStamp;
+                phase[count] = tagInfo.RawPhase;
+                frequency[count] = tagInfo.Frequency;
+                epc[count++] = tagInfo.EPC;
+            }
+            IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
+            vitalSignsService.realtimeAnalyze(epc, timestamp, phase, frequency);
         }
 
         private void tsbtnStart_Click(object sender, EventArgs e)

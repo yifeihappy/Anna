@@ -14,16 +14,18 @@ namespace RFIDIntegratedApplication.Tag
         public FrequencyTable()
         {
             frequencies = new DataTable("frequencies");
+            frequencies.Columns.Add("time");
             frequencies.Columns.Add("respiration");
             frequencies.Columns.Add("heartbeat");
+            
         }
 
-        public void add(int breath, int heartbeat)
+        public void add(double breath, double heartbeat,string time)
         {
             DataRow row = frequencies.NewRow();
             row["respiration"] = breath;
             row["heartbeat"] = heartbeat;
-
+            row["time"] = time;
             frequencies.Rows.Add(row);
         }
 

@@ -15,6 +15,7 @@ namespace VitalSignsServer
     {
         public FrequencyInfo offlineAnalyze(string fileName)
         {
+            Console.WriteLine("正在离线分析文件："+fileName);
             VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
             MWCharArray filename = fileName;
             MWArray[] argsIn = new MWArray[] { filename };
@@ -22,19 +23,19 @@ namespace VitalSignsServer
             vitalSignsExtract.offlineVitalSignsExtract(3,ref result,argsIn);
             double[,] temp = (double[,])result[0].ToArray();
             int num = temp.GetLength(1);
-            int[] breath = new int[num];
-            int[] heartbeat = new int[num];
+            double[] breath = new double[num];
+            double[] heartbeat = new double[num];
             double[] t = new double[num];
             for (int i = 0; i < num; i++)
             {
-                breath[i] = (int)temp[1, i];
-                heartbeat[i] = (int)temp[2, i];
+                breath[i] = temp[1, i];
+                heartbeat[i] = temp[2, i];
                 t[i] = temp[0, i];
             }
-            int meanBreath = (int)(MWNumericArray)result[1];
-            int meanHeartbeat = (int)(MWNumericArray)result[2];
+            double meanBreath = (double)(MWNumericArray)result[1];
+            double meanHeartbeat = (double)(MWNumericArray)result[2];
             FrequencyInfo frequency = new FrequencyInfo(breath, heartbeat, t, meanBreath, meanHeartbeat);
-            
+
             /*
             double[,] time = (double[,])result[1].ToArray();
             int num = frequency.GetLength(1);
@@ -48,7 +49,7 @@ namespace VitalSignsServer
                 t[i] = time[0, i];
             }
             return breath;*/
-            Console.WriteLine("离线分析...");
+            Console.WriteLine("分析结束");
             return frequency;
             //throw new NotImplementedException();
         }
