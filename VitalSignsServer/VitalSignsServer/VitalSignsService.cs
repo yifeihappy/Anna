@@ -54,7 +54,7 @@ namespace VitalSignsServer
             //throw new NotImplementedException();
         }
 
-        public void realtimeAnalyze(string[] epc,long[] timestamp, int[]phase,int[] frequency)
+        public void realtimeAnalyze(SignalIn signalIn)
         {
             /*
             MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
@@ -79,16 +79,16 @@ namespace VitalSignsServer
             vitalSignsExtract.vitalSignsExtract(3,ref result,argsIn);
             */
             Console.WriteLine("实时分析...");
-            MWNumericArray timeStampArray = new MWNumericArray(timestamp);
-            MWNumericArray phaseArray = new MWNumericArray(phase);
-            MWNumericArray frequencyIndex = new MWNumericArray(frequency);
-            MWCellArray EPCArray = new MWCellArray(epc.Length, 1);
+            MWNumericArray timeStampArray = new MWNumericArray(signalIn.timestamp);
+            MWNumericArray phaseArray = new MWNumericArray(signalIn.phase);
+            MWNumericArray frequencyIndex = signalIn.frequency;
+            MWCellArray EPCArray = new MWCellArray(signalIn.epc.Length, 1);
             //MWNumericArray filter = 0;
             //MWNumericArray method = 1;
             //MWNumericArray T = 10;
-            for (int i=0; i < epc.Length; i++)
+            for (int i=0; i < signalIn.epc.Length; i++)
             {
-                EPCArray[i + 1, 1] = epc[i];
+                EPCArray[i + 1, 1] = signalIn.epc[i];
             }
             MWArray[] argsIn = new MWArray[] { EPCArray, timeStampArray, phaseArray, frequencyIndex, 0, 1, 10 };
             MWArray[] result = new MWArray[3];

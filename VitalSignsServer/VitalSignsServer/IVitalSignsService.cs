@@ -13,7 +13,7 @@ namespace VitalSignsServer
     public interface IVitalSignsService
     {
         [OperationContract]
-        void realtimeAnalyze(string[] epc, long[] timestamp, int[] phase, int[] frequency);
+        void realtimeAnalyze(SignalIn signalIn);
         [OperationContract]
         FrequencyInfo offlineAnalyze(string fileName);
 
@@ -40,6 +40,30 @@ namespace VitalSignsServer
             this.meanBreath = meanBreath;
             this.meanHeartbeat = meanHeartbeat;
         }
+    }
+
+    //string[] epc,long[] timestamp, double[]phase,int[] frequency
+    [DataContract]
+    public class SignalIn
+    {
+        [DataMember]
+        public string[] epc { get; set; }
+        [DataMember]
+        public long[] timestamp { get; set; }
+        [DataMember]
+        public double[] phase;
+        [DataMember]
+        public int[] frequency;
+
+        public SignalIn(string[] epc, long[] timestamp, double[] phase, int[] frequency)
+        {
+            this.epc = epc;
+            this.timestamp = timestamp;
+            this.phase = phase;
+            this.frequency = frequency;
+        }
+     
+
     }
 
 

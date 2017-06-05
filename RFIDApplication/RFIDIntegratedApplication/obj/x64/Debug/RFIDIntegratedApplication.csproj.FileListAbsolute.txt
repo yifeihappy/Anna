@@ -340,3 +340,4 @@ D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug
 D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.dll
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
+F:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\vitalsigns.dll
