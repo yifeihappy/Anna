@@ -1,30 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-=======
-  <xs:complexType name="ArrayOfstring">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
-  <xs:complexType name="ArrayOfint">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
   <xs:complexType name="ArrayOfdouble">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="double" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfdouble" nillable="true" type="tns:ArrayOfdouble" />
-  <xs:complexType name="ArrayOflong">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="long" type="xs:long" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOflong" nillable="true" type="tns:ArrayOflong" />
 </xs:schema>

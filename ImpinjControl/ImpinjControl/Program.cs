@@ -23,7 +23,7 @@ namespace ImpinjControl
                 //开启服务
                 host.Open();
                 Console.WriteLine("Service listen begin to listen on 50003");
-                Console.WriteLine("读写器服务已经启动...");
+                Console.WriteLine("Reader Service is running...");
                 Console.WriteLine("press any key to teriminate...");
                 Console.ReadKey();
                 host.Abort();

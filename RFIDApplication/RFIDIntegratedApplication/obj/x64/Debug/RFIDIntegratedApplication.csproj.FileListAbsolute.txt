@@ -341,7 +341,6 @@ D:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.dll
 E:\交大\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\MWArray.xml
 F:\RFID53130603\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\vitalsigns.dll
-<<<<<<< HEAD
 C:\Users\RFID\Desktop\RFID5313\RFIDApplication\RFIDIntegratedApplication\bin\x64\Debug\RFIDIntegratedApplication.exe.config
 C:\Users\RFID\Desktop\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.exe
 C:\Users\RFID\Desktop\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.pdb
@@ -369,5 +368,3 @@ D:\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegrat
 D:\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.SearchReaderIPForm.resources
 D:\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.TagTableForm.resources
 D:\RFID5313\RFIDApplication\RFIDIntegratedApplication\obj\x64\Debug\RFIDIntegratedApplication.csproj.GenerateResource.Cache
-=======
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0

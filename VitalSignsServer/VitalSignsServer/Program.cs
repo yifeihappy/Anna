@@ -34,7 +34,7 @@ namespace VitalSignsServer
                 //开启服务
                 host.Open();
                 Console.WriteLine("Service listen begin to listen on 50004");
-                Console.WriteLine("生命体征感知服务已经启动...");
+                Console.WriteLine("Vital signs Service is running...");
                 Console.WriteLine("press any key to teriminate...");
                 Console.ReadKey();
                 host.Abort();

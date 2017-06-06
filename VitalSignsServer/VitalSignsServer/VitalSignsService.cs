@@ -19,7 +19,7 @@ namespace VitalSignsServer
         private VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
         public FrequencyInfo offlineAnalyze(string fileName)
         {
-            Console.WriteLine("正在离线分析文件："+fileName);
+            Console.WriteLine("Start analyzing offline file："+fileName);
             
             MWCharArray filename = fileName;
             MWArray[] argsIn = new MWArray[] { filename };
@@ -53,16 +53,12 @@ namespace VitalSignsServer
                 t[i] = time[0, i];
             }
             return breath;*/
-            Console.WriteLine("分析结束");
+            Console.WriteLine("Analysis ends");
             return frequency;
             //throw new NotImplementedException();
         }
 
-<<<<<<< HEAD
         public FrequencyInfo realtimeAnalyze()
-=======
-        public void realtimeAnalyze(SignalIn signalIn)
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
         {
             /*
             MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
@@ -86,8 +82,7 @@ namespace VitalSignsServer
             VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
             vitalSignsExtract.vitalSignsExtract(3,ref result,argsIn);
             */
-            Console.WriteLine("实时分析...");
-<<<<<<< HEAD
+            Console.WriteLine("Realtime Analyzing...");
             long[] timestampArray = timestampQueue.ToArray();
             MWNumericArray timeStampArray = timestampArray;
             double[] phaseArray1 = phaseQueue.ToArray();
@@ -103,18 +98,6 @@ namespace VitalSignsServer
             for (int i=0; i < epcArray.Length; i++)
             {
                 EPCArray[i + 1, 1] = epcArray[i];
-=======
-            MWNumericArray timeStampArray = new MWNumericArray(signalIn.timestamp);
-            MWNumericArray phaseArray = new MWNumericArray(signalIn.phase);
-            MWNumericArray frequencyIndex = signalIn.frequency;
-            MWCellArray EPCArray = new MWCellArray(signalIn.epc.Length, 1);
-            //MWNumericArray filter = 0;
-            //MWNumericArray method = 1;
-            //MWNumericArray T = 10;
-            for (int i=0; i < signalIn.epc.Length; i++)
-            {
-                EPCArray[i + 1, 1] = signalIn.epc[i];
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
             }
 
             MWArray[] argsIn = new MWArray[] { EPCArray, timeStampArray, phaseArray, frequencyIndex, 0, 1, 10 };
@@ -124,11 +107,14 @@ namespace VitalSignsServer
             { 
                 vitalSignsExtract.vitalSignsExtract(3, ref result, argsIn);
                 double[,] breathAndHb = (double[,])(result[0].ToArray());
-                Console.WriteLine(breathAndHb[0,3]);
+                
                 int fail = (int)(MWNumericArray)result[2];
                 Console.WriteLine("fail: "+fail);
-                fre.meanBreath = breathAndHb[0, 3];
-                fre.meanHeartbeat = breathAndHb[0, 4];
+                fre.meanBreath = breathAndHb[0, 1];
+                fre.meanHeartbeat = breathAndHb[0, 3];
+                Console.WriteLine("breath:"+ breathAndHb[0, 1] + " "+breathAndHb[0,2]);
+                Console.WriteLine("heartbeat:" + fre.meanHeartbeat + " "+breathAndHb[0,4]);
+                fre.fail = fail;
             }catch(Exception ex)
             {
                 Console.WriteLine(ex.ToString());

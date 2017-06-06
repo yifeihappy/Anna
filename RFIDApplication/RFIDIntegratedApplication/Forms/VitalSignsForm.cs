@@ -50,6 +50,11 @@ namespace RFIDIntegratedApplication
             realTimeMonitorToolStripMenuItem.Enabled = false;
         }
 
+        public void updateFail(int fail)
+        {
+            this.fail = fail;
+        }
+
         public VitalSignsForm(MainForm mainform)
         {
             InitializeComponent();
@@ -170,16 +175,19 @@ namespace RFIDIntegratedApplication
                 case 3:
                     warningPicBox.Image = Properties.Resources.warning2;
                     warningLabel.Text = "呼吸暂停";
+                    warningLabel.ForeColor = Color.Orange;
                     break;
                 case 2:
                     warningPicBox.Image = Properties.Resources.warning2;
                     warningLabel.Text = "信号太弱";
+                    warningLabel.ForeColor = Color.Orange;
                     break;
                 case 1:
                     warningPicBox.Image = Properties.Resources.warning2;
                     warningLabel.Text = "请保持静止";
+                    warningLabel.ForeColor = Color.Orange;
                     break;
-                default:
+                case 0:
                     warningPicBox.Image = Properties.Resources.warning1;
                     warningLabel.Text = "正常";
                     break;
@@ -223,7 +231,7 @@ namespace RFIDIntegratedApplication
          
         }
 
-        private void updateBreathAndHeartbeat(double breath, double heartbeat)
+        public void updateBreathAndHeartbeat(double breath, double heartbeat)
         {
             this.breath = breath;
             this.heartbeat = heartbeat;
@@ -284,7 +292,7 @@ namespace RFIDIntegratedApplication
         private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = "E:\\交大\\Script\\Data";
+            openFileDialog.InitialDirectory = "D:\\Data";
             openFileDialog.Filter = "CSV File(*.csv)|*.csv";
             openFileDialog.RestoreDirectory = true;
             openFileDialog.FilterIndex = 1;

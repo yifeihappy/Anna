@@ -69,23 +69,17 @@ namespace RFIDIntegratedApplication
             _filename = "\\TagLog.csv";
             _tagsQueue = new ConcurrentQueue<TagInfo>();
             _tagsTable = new TagsTable();
-<<<<<<< HEAD
            // tagInfoQueue = new Queue<TagInfo>();
            
-=======
-            tagInfoQueue = new Queue<TagInfo>();
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
             vitalSignsTiming = 0;
             isFinish = false;
             vitalSignsTimer.Elapsed += new System.Timers.ElapsedEventHandler(vitalSignsExtract);
             vitalSignsTimer.Interval = 1000;
             regularSaveTimer = new System.Timers.Timer();
             regularSaveTimer.Elapsed += new System.Timers.ElapsedEventHandler(regularSave);
-<<<<<<< HEAD
+            //regularSaveTimer.Interval = 60 * 60000;
             regularSaveTimer.Interval = 60000;
-=======
-            regularSaveTimer.Interval = 60 * 60000;
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
+
         }
 
         /// <summary>
@@ -493,7 +487,6 @@ namespace RFIDIntegratedApplication
             }
 
             _tagsTable.AddTagInfo(tagInfo);
-<<<<<<< HEAD
             /* tagInfoQueue.Enqueue(tagInfo);
              if (vitalSignsTiming >= 3)
              {
@@ -504,10 +497,6 @@ namespace RFIDIntegratedApplication
                  tagInfos = tagInfoQueue.ToList<TagInfo>();
              }*/
             try
-=======
-            tagInfoQueue.Enqueue(tagInfo);
-            if (vitalSignsTiming >= 3)
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
             {
                 IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
                 long timestamp = (long)tagInfo.TimeStamp;
@@ -673,7 +662,7 @@ namespace RFIDIntegratedApplication
 
         public void regularSave(object source, ElapsedEventArgs e)
         {
-            String filename = Path.Combine("../../../record/", DateTime.Now.ToString("yyyy_MM_dd_hh_mm") + "_record.csv");
+            String filename = Path.Combine("../../../record/", DateTime.Now.ToString("yyyy_MM_dd_hh") + "_record.csv");
             CSVFileHelper.SaveCSV(frequencyTable.frequencies, filename);
             frequencyTable.clear();
         }
@@ -686,7 +675,6 @@ namespace RFIDIntegratedApplication
         public void vitalSignsExtract(object source, ElapsedEventArgs e)
         {
 
-<<<<<<< HEAD
             if (vitalSignsTiming < DELAY_TIME_SECOND)
             {
                 vitalSignsTiming++;
@@ -694,27 +682,12 @@ namespace RFIDIntegratedApplication
                 Console.WriteLine("vitalSignsTiming=" + vitalSignsTiming);
             }
             else 
-=======
-            if (vitalSignsTiming < 3)
-            {
-                vitalSignsTiming++;
-                isFinish = true;
-                Console.WriteLine("vitalSignsTiming=" + vitalSignsTiming);
-            }
-            else if (isFinish)
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
             {
 
                 //MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
                 ///////////////////
-<<<<<<< HEAD
                 Thread thread = new Thread(realtimeAnalyze);
                 thread.Start();
-=======
-                realtimeAnalyze();
-
-                isFinish = true;
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
 
 
                 /*test
@@ -750,59 +723,22 @@ namespace RFIDIntegratedApplication
 
         public void realtimeAnalyze()
         {
-<<<<<<< HEAD
 
             IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
             FrequencyInfo fre = vitalSignsService.realtimeAnalyze();
             ServiceManager.closeService(vitalSignsService);
-            _vitalSignsForm.updateBreathHeartbeatFail(fre.meanBreath, fre.meanHeartbeat, fre.fail);
- 
-           
-=======
-            int count = 0;
-            long[] timestamp = new long[tagInfos.Count];
-            double[] phase = new double[tagInfos.Count];
-            int[] frequency = new int[tagInfos.Count];
-            string[] epc = new string[tagInfos.Count];
-            foreach (TagInfo tagInfo in tagInfos)
+            if (fre != null)
             {
-                timestamp[count] = (long)tagInfo.TimeStamp;
-                phase[count] = tagInfo.AcutalPhaseInRadian;
-                frequency[count] = tagInfo.ChannelIndex;
-                epc[count++] = tagInfo.EPC;
-            }
-            
-            MWNumericArray timeStampArray = new MWNumericArray(timestamp);
-            MWNumericArray phaseArray = new MWNumericArray(phase);
-            MWNumericArray frequencyIndex = frequency;
-            MWCellArray EPCArray = new MWCellArray(epc.Length, 1);
-            for (int i = 0; i < epc.Length; i++)
-            {
-                EPCArray[i + 1, 1] = epc[i];
-            }
-            MWArray[] argsIn = new MWArray[] { EPCArray, timeStampArray, phaseArray, frequencyIndex, 0, 1, 10 };
-            MWArray[] result = new MWArray[3];
-            VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
-            vitalSignsExtract.vitalSignsExtract(3, ref result, argsIn);
-            
-    /*
-            IVitalSignsService vitalSignsService = ServiceManager.getOneVitalSignsService();
-            try
-            {
-                vitalSignsService.realtimeAnalyze(new SignalIn(epc, timestamp, phase, frequency));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                _vitalSignsForm.updateFail( fre.fail);
+                if(fre.fail == 3||fre.fail==0)
+                {
+                    _vitalSignsForm.updateBreathAndHeartbeat(fre.meanBreath, fre.meanHeartbeat);
+                    frequencyTable.add(fre.meanBreath, fre.meanHeartbeat, DateTime.Now.ToString("hh:mm:ss"));
 
-                //return;
+                }
             }
-            finally
-            {
-                ServiceManager.closeService(vitalSignsService);
-            }
-            */
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
+
+
         }
 
         private void tsbtnStart_Click(object sender, EventArgs e)
@@ -1104,6 +1040,11 @@ namespace RFIDIntegratedApplication
         private void vitalSignsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this._vitalSignsForm.Show(this.dockPanelMain, AppConfig.vitalSignsDockState);
+        }
+
+        private void tsslblStatus_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

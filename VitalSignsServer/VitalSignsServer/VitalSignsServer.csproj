@@ -88,12 +88,9 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-<<<<<<< HEAD
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-=======
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

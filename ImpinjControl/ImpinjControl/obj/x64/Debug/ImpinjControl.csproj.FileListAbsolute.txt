@@ -28,3 +28,8 @@ F:\RFID53130603\RFID5313\ImpinjControl\ImpinjControl\obj\x64\Debug\ImpinjControl
 D:\RFID5313\ImpinjControl\ImpinjControl\bin\x64\Debug\ImpinjControl.exe.config
 D:\RFID5313\ImpinjControl\ImpinjControl\obj\x64\Debug\ImpinjControl.exe
 D:\RFID5313\ImpinjControl\ImpinjControl\obj\x64\Debug\ImpinjControl.pdb
+D:\RFID5313\ImpinjControl\ImpinjControl\bin\x64\Debug\ImpinjControl.exe
+D:\RFID5313\ImpinjControl\ImpinjControl\bin\x64\Debug\ImpinjControl.pdb
+D:\RFID5313\ImpinjControl\ImpinjControl\bin\x64\Debug\LLRP.dll
+D:\RFID5313\ImpinjControl\ImpinjControl\bin\x64\Debug\LLRP.Impinj.dll
+D:\RFID5313\ImpinjControl\ImpinjControl\obj\x64\Debug\ImpinjControl.csprojResolveAssemblyReference.cache

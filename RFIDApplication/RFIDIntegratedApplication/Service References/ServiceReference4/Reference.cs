@@ -15,99 +15,6 @@ namespace RFIDIntegratedApplication.ServiceReference4 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SignalIn", Namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer")]
-    [System.SerializableAttribute()]
-    public partial class SignalIn : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string[] epcField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int[] frequencyField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double[] phaseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long[] timestampField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string[] epc {
-            get {
-                return this.epcField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.epcField, value) != true)) {
-                    this.epcField = value;
-                    this.RaisePropertyChanged("epc");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int[] frequency {
-            get {
-                return this.frequencyField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.frequencyField, value) != true)) {
-                    this.frequencyField = value;
-                    this.RaisePropertyChanged("frequency");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double[] phase {
-            get {
-                return this.phaseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.phaseField, value) != true)) {
-                    this.phaseField = value;
-                    this.RaisePropertyChanged("phase");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long[] timestamp {
-            get {
-                return this.timestampField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.timestampField, value) != true)) {
-                    this.timestampField = value;
-                    this.RaisePropertyChanged("timestamp");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FrequencyInfo", Namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer")]
     [System.SerializableAttribute()]
     public partial class FrequencyInfo : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -236,17 +143,10 @@ namespace RFIDIntegratedApplication.ServiceReference4 {
     public interface IVitalSignsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/realtimeAnalyzeResponse")]
-<<<<<<< HEAD
         RFIDIntegratedApplication.ServiceReference4.FrequencyInfo realtimeAnalyze();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/realtimeAnalyzeResponse")]
         System.Threading.Tasks.Task<RFIDIntegratedApplication.ServiceReference4.FrequencyInfo> realtimeAnalyzeAsync();
-=======
-        void realtimeAnalyze(RFIDIntegratedApplication.ServiceReference4.SignalIn signalIn);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/realtimeAnalyzeResponse")]
-        System.Threading.Tasks.Task realtimeAnalyzeAsync(RFIDIntegratedApplication.ServiceReference4.SignalIn signalIn);
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IVitalSignsService/offlineAnalyze", ReplyAction="http://tempuri.org/IVitalSignsService/offlineAnalyzeResponse")]
         RFIDIntegratedApplication.ServiceReference4.FrequencyInfo offlineAnalyze(string fileName);
@@ -300,21 +200,12 @@ namespace RFIDIntegratedApplication.ServiceReference4 {
                 base(binding, remoteAddress) {
         }
         
-<<<<<<< HEAD
         public RFIDIntegratedApplication.ServiceReference4.FrequencyInfo realtimeAnalyze() {
             return base.Channel.realtimeAnalyze();
         }
         
         public System.Threading.Tasks.Task<RFIDIntegratedApplication.ServiceReference4.FrequencyInfo> realtimeAnalyzeAsync() {
             return base.Channel.realtimeAnalyzeAsync();
-=======
-        public void realtimeAnalyze(RFIDIntegratedApplication.ServiceReference4.SignalIn signalIn) {
-            base.Channel.realtimeAnalyze(signalIn);
-        }
-        
-        public System.Threading.Tasks.Task realtimeAnalyzeAsync(RFIDIntegratedApplication.ServiceReference4.SignalIn signalIn) {
-            return base.Channel.realtimeAnalyzeAsync(signalIn);
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
         }
         
         public RFIDIntegratedApplication.ServiceReference4.FrequencyInfo offlineAnalyze(string fileName) {

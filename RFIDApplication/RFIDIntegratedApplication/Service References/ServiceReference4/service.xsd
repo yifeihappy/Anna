@@ -3,13 +3,7 @@
   <xs:import namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer" />
   <xs:element name="realtimeAnalyze">
     <xs:complexType>
-<<<<<<< HEAD
       <xs:sequence />
-=======
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VitalSignsServer" minOccurs="0" name="signalIn" nillable="true" type="q1:SignalIn" />
-      </xs:sequence>
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
     </xs:complexType>
   </xs:element>
   <xs:element name="realtimeAnalyzeResponse">
@@ -30,7 +24,6 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VitalSignsServer" minOccurs="0" name="offlineAnalyzeResult" nillable="true" type="q2:FrequencyInfo" />
-<<<<<<< HEAD
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -41,8 +34,6 @@
         <xs:element minOccurs="0" name="phase" type="xs:double" />
         <xs:element minOccurs="0" name="frequency" type="xs:int" />
         <xs:element minOccurs="0" name="epc" nillable="true" type="xs:string" />
-=======
->>>>>>> b8eca286e13f01e4d391b9f6971d8a0ac7bfe2a0
       </xs:sequence>
     </xs:complexType>
   </xs:element>
