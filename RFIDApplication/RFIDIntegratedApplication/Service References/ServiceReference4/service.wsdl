@@ -37,8 +37,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IVitalSignsService_realtimeAnalyze_InputMessage">
@@ -53,6 +53,24 @@
   <wsdl:message name="IVitalSignsService_offlineAnalyze_OutputMessage">
     <wsdl:part name="parameters" element="tns:offlineAnalyzeResponse" />
   </wsdl:message>
+  <wsdl:message name="IVitalSignsService_addTagInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:addTagInfo" />
+  </wsdl:message>
+  <wsdl:message name="IVitalSignsService_addTagInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:addTagInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVitalSignsService_removeHead_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeHead" />
+  </wsdl:message>
+  <wsdl:message name="IVitalSignsService_removeHead_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeHeadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVitalSignsService_cleanBuffer_InputMessage">
+    <wsdl:part name="parameters" element="tns:cleanBuffer" />
+  </wsdl:message>
+  <wsdl:message name="IVitalSignsService_cleanBuffer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:cleanBufferResponse" />
+  </wsdl:message>
   <wsdl:portType name="IVitalSignsService">
     <wsdl:operation name="realtimeAnalyze">
       <wsdl:input wsaw:Action="http://tempuri.org/IVitalSignsService/realtimeAnalyze" message="tns:IVitalSignsService_realtimeAnalyze_InputMessage" />
@@ -61,6 +79,18 @@
     <wsdl:operation name="offlineAnalyze">
       <wsdl:input wsaw:Action="http://tempuri.org/IVitalSignsService/offlineAnalyze" message="tns:IVitalSignsService_offlineAnalyze_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IVitalSignsService/offlineAnalyzeResponse" message="tns:IVitalSignsService_offlineAnalyze_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="addTagInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVitalSignsService/addTagInfo" message="tns:IVitalSignsService_addTagInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVitalSignsService/addTagInfoResponse" message="tns:IVitalSignsService_addTagInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeHead">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVitalSignsService/removeHead" message="tns:IVitalSignsService_removeHead_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVitalSignsService/removeHeadResponse" message="tns:IVitalSignsService_removeHead_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="cleanBuffer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IVitalSignsService/cleanBuffer" message="tns:IVitalSignsService_cleanBuffer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IVitalSignsService/cleanBufferResponse" message="tns:IVitalSignsService_cleanBuffer_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IVitalSignsService" type="tns:IVitalSignsService">
@@ -85,6 +115,33 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="addTagInfo">
+      <soap12:operation soapAction="http://tempuri.org/IVitalSignsService/addTagInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeHead">
+      <soap12:operation soapAction="http://tempuri.org/IVitalSignsService/removeHead" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cleanBuffer">
+      <soap12:operation soapAction="http://tempuri.org/IVitalSignsService/cleanBuffer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="VitalSignsService">
     <wsdl:port name="NetTcpBinding_IVitalSignsService" binding="tns:NetTcpBinding_IVitalSignsService">
@@ -92,7 +149,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>ZEBRAAAAAA\Anna</Upn>
+          <Upn>RFID-PC\RFID</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -34,8 +34,6 @@
             this.heartbeatLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.aGauge1 = new RFIDIntegratedApplication.AGauge();
-            this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +45,8 @@
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripButton();
             this.warningPicBox = new System.Windows.Forms.PictureBox();
             this.warningLabel = new System.Windows.Forms.Label();
+            this.aGauge1 = new RFIDIntegratedApplication.AGauge();
+            this.aGauge2 = new RFIDIntegratedApplication.AGauge();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warningPicBox)).BeginInit();
@@ -55,7 +55,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
             this.label1.Location = new System.Drawing.Point(126, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 21);
@@ -66,7 +66,7 @@
             // 
             this.breathLabel.BackColor = System.Drawing.Color.LightGreen;
             this.breathLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.breathLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.breathLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.breathLabel.Location = new System.Drawing.Point(140, 83);
             this.breathLabel.Name = "breathLabel";
             this.breathLabel.Size = new System.Drawing.Size(50, 22);
@@ -78,8 +78,8 @@
             // 
             this.heartbeatLabel.BackColor = System.Drawing.Color.LightGreen;
             this.heartbeatLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.heartbeatLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.heartbeatLabel.Location = new System.Drawing.Point(595, 83);
+            this.heartbeatLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.heartbeatLabel.Location = new System.Drawing.Point(815, 83);
             this.heartbeatLabel.Name = "heartbeatLabel";
             this.heartbeatLabel.Size = new System.Drawing.Size(50, 22);
             this.heartbeatLabel.TabIndex = 23;
@@ -89,8 +89,8 @@
             // label3
             // 
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.label3.Location = new System.Drawing.Point(471, 259);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 12F);
+            this.label3.Location = new System.Drawing.Point(692, 254);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(294, 33);
             this.label3.TabIndex = 20;
@@ -115,8 +115,8 @@
             chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
             chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
             chartArea1.AxisX.Minimum = 0D;
-            chartArea1.AxisX.Title = "秒";
-            chartArea1.AxisX.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.Title = "毫秒";
+            chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisY.IsLabelAutoFit = false;
             chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,7 +128,7 @@
             chartArea1.AxisY.Maximum = 200D;
             chartArea1.AxisY.Minimum = 0D;
             chartArea1.AxisY.Title = "瞬时频率(次/分钟)";
-            chartArea1.AxisY.TitleFont = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             chartArea1.CursorX.IsUserEnabled = true;
             chartArea1.CursorX.IsUserSelectionEnabled = true;
             chartArea1.CursorX.SelectionColor = System.Drawing.Color.DeepSkyBlue;
@@ -142,12 +142,116 @@
             chartArea1.Position.X = 2F;
             chartArea1.Position.Y = 10F;
             this.chart1.ChartAreas.Add(chartArea1);
-            this.chart1.Location = new System.Drawing.Point(64, 317);
+            this.chart1.Location = new System.Drawing.Point(99, 303);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(701, 244);
+            this.chart1.Size = new System.Drawing.Size(864, 256);
             this.chart1.TabIndex = 24;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click_1);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton2,
+            this.toolStripButton1,
+            this.toolStripSplitButton1,
+            this.importToolStripMenuItem});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1086, 25);
+            this.toolStrip1.TabIndex = 25;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Linen;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(51, 22);
+            this.toolStripButton2.Text = "开始";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::RFIDIntegratedApplication.Properties.Resources.stop;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Linen;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(51, 22);
+            this.toolStripButton1.Text = "暂停";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingToolStripMenuItem,
+            this.realTimeMonitorToolStripMenuItem,
+            this.regularSaveToolStripMenuItem});
+            this.toolStripSplitButton1.Image = global::RFIDIntegratedApplication.Properties.Resources.settings;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(63, 22);
+            this.toolStripSplitButton1.Text = "设置";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.changeNeedleType});
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.settingToolStripMenuItem.Text = "外观";
+            // 
+            // changeNeedleType
+            // 
+            this.changeNeedleType.Name = "changeNeedleType";
+            this.changeNeedleType.Size = new System.Drawing.Size(146, 22);
+            this.changeNeedleType.Text = "改变表针形状";
+            this.changeNeedleType.Click += new System.EventHandler(this.changeNeedleType_Click);
+            // 
+            // realTimeMonitorToolStripMenuItem
+            // 
+            this.realTimeMonitorToolStripMenuItem.Checked = true;
+            this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
+            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
+            this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
+            // 
+            // regularSaveToolStripMenuItem
+            // 
+            this.regularSaveToolStripMenuItem.Name = "regularSaveToolStripMenuItem";
+            this.regularSaveToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.regularSaveToolStripMenuItem.Text = "定时离线";
+            this.regularSaveToolStripMenuItem.Click += new System.EventHandler(this.regularSaveToolStripMenuItem_Click);
+            // 
+            // importToolStripMenuItem
+            // 
+            this.importToolStripMenuItem.Image = global::RFIDIntegratedApplication.Properties.Resources.import;
+            this.importToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Linen;
+            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(51, 22);
+            this.importToolStripMenuItem.Text = "导入";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
+            // 
+            // warningPicBox
+            // 
+            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning1;
+            this.warningPicBox.Location = new System.Drawing.Point(518, 72);
+            this.warningPicBox.Name = "warningPicBox";
+            this.warningPicBox.Size = new System.Drawing.Size(40, 57);
+            this.warningPicBox.TabIndex = 26;
+            this.warningPicBox.TabStop = false;
+            this.warningPicBox.Click += new System.EventHandler(this.warningPicBox_Click);
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.warningLabel.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.warningLabel.Location = new System.Drawing.Point(514, 40);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(37, 20);
+            this.warningLabel.TabIndex = 27;
+            this.warningLabel.Text = "正常";
             // 
             // aGauge1
             // 
@@ -178,7 +282,7 @@
         ""};
             this.aGauge1.CapText = "次/分钟";
             this.aGauge1.Center = new System.Drawing.Point(100, 100);
-            this.aGauge1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge1.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.aGauge1.Location = new System.Drawing.Point(64, 143);
             this.aGauge1.MaxValue = 30F;
             this.aGauge1.MinValue = 0F;
@@ -286,8 +390,8 @@
         ""};
             this.aGauge2.CapText = "次/分钟";
             this.aGauge2.Center = new System.Drawing.Point(150, 180);
-            this.aGauge2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.aGauge2.Location = new System.Drawing.Point(468, 125);
+            this.aGauge2.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.aGauge2.Location = new System.Drawing.Point(689, 143);
             this.aGauge2.MaxValue = 160F;
             this.aGauge2.MinValue = 40F;
             this.aGauge2.Name = "aGauge2";
@@ -365,116 +469,12 @@
             this.aGauge2.Value = 70F;
             this.aGauge2.ValueInRangeChanged += new RFIDIntegratedApplication.AGauge.ValueInRangeChangedDelegate(this.aGauge2_ValueInRangeChanged);
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton1,
-            this.toolStripSplitButton1,
-            this.importToolStripMenuItem});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(821, 25);
-            this.toolStrip1.TabIndex = 25;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = global::RFIDIntegratedApplication.Properties.Resources.start;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Linen;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton2.Text = "开始";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = global::RFIDIntegratedApplication.Properties.Resources.stop;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Linen;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(52, 22);
-            this.toolStripButton1.Text = "暂停";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // toolStripSplitButton1
-            // 
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingToolStripMenuItem,
-            this.realTimeMonitorToolStripMenuItem,
-            this.regularSaveToolStripMenuItem});
-            this.toolStripSplitButton1.Image = global::RFIDIntegratedApplication.Properties.Resources.settings;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(64, 22);
-            this.toolStripSplitButton1.Text = "设置";
-            // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeNeedleType});
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.settingToolStripMenuItem.Text = "外观";
-            // 
-            // changeNeedleType
-            // 
-            this.changeNeedleType.Name = "changeNeedleType";
-            this.changeNeedleType.Size = new System.Drawing.Size(148, 22);
-            this.changeNeedleType.Text = "改变表针形状";
-            this.changeNeedleType.Click += new System.EventHandler(this.changeNeedleType_Click);
-            // 
-            // realTimeMonitorToolStripMenuItem
-            // 
-            this.realTimeMonitorToolStripMenuItem.Checked = true;
-            this.realTimeMonitorToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.realTimeMonitorToolStripMenuItem.Name = "realTimeMonitorToolStripMenuItem";
-            this.realTimeMonitorToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.realTimeMonitorToolStripMenuItem.Text = "实时监控";
-            this.realTimeMonitorToolStripMenuItem.Click += new System.EventHandler(this.realTimeMonitorToolStripMenuItem_Click);
-            // 
-            // regularSaveToolStripMenuItem
-            // 
-            this.regularSaveToolStripMenuItem.Name = "regularSaveToolStripMenuItem";
-            this.regularSaveToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.regularSaveToolStripMenuItem.Text = "定时离线";
-            this.regularSaveToolStripMenuItem.Click += new System.EventHandler(this.regularSaveToolStripMenuItem_Click);
-            // 
-            // importToolStripMenuItem
-            // 
-            this.importToolStripMenuItem.Image = global::RFIDIntegratedApplication.Properties.Resources.import;
-            this.importToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Linen;
-            this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(52, 22);
-            this.importToolStripMenuItem.Text = "导入";
-            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
-            // 
-            // warningPicBox
-            // 
-            this.warningPicBox.Image = global::RFIDIntegratedApplication.Properties.Resources.warning1;
-            this.warningPicBox.Location = new System.Drawing.Point(387, 67);
-            this.warningPicBox.Name = "warningPicBox";
-            this.warningPicBox.Size = new System.Drawing.Size(40, 57);
-            this.warningPicBox.TabIndex = 26;
-            this.warningPicBox.TabStop = false;
-            this.warningPicBox.Click += new System.EventHandler(this.warningPicBox_Click);
-            // 
-            // warningLabel
-            // 
-            this.warningLabel.AutoSize = true;
-            this.warningLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.warningLabel.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.warningLabel.Location = new System.Drawing.Point(21, 25);
-            this.warningLabel.Name = "warningLabel";
-            this.warningLabel.Size = new System.Drawing.Size(37, 20);
-            this.warningLabel.TabIndex = 27;
-            this.warningLabel.Text = "正常";
-            // 
             // VitalSignsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(821, 445);
+            this.ClientSize = new System.Drawing.Size(1086, 688);
             this.Controls.Add(this.warningLabel);
             this.Controls.Add(this.warningPicBox);
             this.Controls.Add(this.toolStrip1);
@@ -485,7 +485,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.aGauge2);
             this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "VitalSignsForm";
             this.Text = " Vital Signs";
             this.Load += new System.EventHandler(this.VitalSignsForm_Load);

@@ -1,20 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:import namespace="http://schemas.datacontract.org/2004/07/VitalSignsServer" />
   <xs:element name="realtimeAnalyze">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="epc" nillable="true" type="q1:ArrayOfstring" />
-        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="timestamp" nillable="true" type="q2:ArrayOflong" />
-        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="phase" nillable="true" type="q3:ArrayOfint" />
-        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="frequency" nillable="true" type="q4:ArrayOfint" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="realtimeAnalyzeResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VitalSignsServer" minOccurs="0" name="realtimeAnalyzeResult" nillable="true" type="q1:FrequencyInfo" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="offlineAnalyze">
@@ -27,8 +23,43 @@
   <xs:element name="offlineAnalyzeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VitalSignsServer" minOccurs="0" name="offlineAnalyzeResult" nillable="true" type="q5:FrequencyInfo" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VitalSignsServer" minOccurs="0" name="offlineAnalyzeResult" nillable="true" type="q2:FrequencyInfo" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addTagInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="timestamp" type="xs:long" />
+        <xs:element minOccurs="0" name="phase" type="xs:double" />
+        <xs:element minOccurs="0" name="frequency" type="xs:int" />
+        <xs:element minOccurs="0" name="epc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="addTagInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeHead">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeHeadResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cleanBuffer">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cleanBufferResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

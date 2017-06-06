@@ -25,8 +25,8 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="92b32a94-6026-4dad-9725-5e7d47256ae8" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="e0284d19-ebcb-40ff-a625-a738b8408600" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="4f850ade-bc33-4510-85a0-6f2195f4fb6e" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="5b9ecbf2-64b2-4d81-afaa-c6c3f7e2334f" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
     <MetadataFile FileName="VitalSignsServer.xsd" MetadataType="Schema" ID="79ca127e-6c6e-4230-bbcd-823417a36ab5" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="5b9ecbf2-64b2-4d81-afaa-c6c3f7e2334f" SourceId="1" SourceUrl="net.tcp://127.0.0.1:50004/VitalSignsServiceEndPoint/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

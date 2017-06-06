@@ -2,7 +2,7 @@
  xmlns:llrp="http://www.llrp.org/ltk/schema/core/encoding/xml/1.0"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://www.llrp.org/ltk/schema/core/encoding/xml/1.0 http://www.llrp.org/ltk/schema/core/encoding/xml/1.0/llrp.xsd"
- Version="1" MessageID="11647">
+ Version="1" MessageID="12">
   <ResetToFactoryDefault>true</ResetToFactoryDefault>
   <ReaderEventNotificationSpec>
     <EventNotificationState>
@@ -77,7 +77,7 @@
         </C1G2TagInventoryStateUnawareFilterAction>
       </C1G2Filter>
       <C1G2RFControl>
-        <ModeIndex>1000</ModeIndex>
+        <ModeIndex>0</ModeIndex>
         <Tari>0</Tari>
       </C1G2RFControl>
       <C1G2SingulationControl>

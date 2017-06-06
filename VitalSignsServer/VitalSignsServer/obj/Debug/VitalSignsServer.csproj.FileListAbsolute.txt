@@ -37,3 +37,12 @@ F:\rfid实验室\丁峰\呼吸项目\VitalSignsServer\VitalSignsServer\bin\Debug
 F:\rfid实验室\丁峰\呼吸项目\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
 F:\rfid实验室\丁峰\呼吸项目\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb
 E:\交大\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\vitalsigns.dll
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.pdb
+C:\Users\RFID\Desktop\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+D:\RFID5313\VitalSignsServer\VitalSignsServer\bin\Debug\VitalSignsServer.exe.config
+D:\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.exe
+D:\RFID5313\VitalSignsServer\VitalSignsServer\obj\Debug\VitalSignsServer.pdb

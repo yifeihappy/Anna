@@ -1,0 +1,7 @@
+D:\RFID5313\VitalSignsServer\VitalSignsServer\bin\x64\Debug\VitalSignsServer.exe.config
+D:\RFID5313\VitalSignsServer\VitalSignsServer\obj\x64\Debug\VitalSignsServer.csprojResolveAssemblyReference.cache
+D:\RFID5313\VitalSignsServer\VitalSignsServer\bin\x64\Debug\VitalSignsServer.exe
+D:\RFID5313\VitalSignsServer\VitalSignsServer\bin\x64\Debug\VitalSignsServer.pdb
+D:\RFID5313\VitalSignsServer\VitalSignsServer\bin\x64\Debug\vitalsigns.dll
+D:\RFID5313\VitalSignsServer\VitalSignsServer\obj\x64\Debug\VitalSignsServer.exe
+D:\RFID5313\VitalSignsServer\VitalSignsServer\obj\x64\Debug\VitalSignsServer.pdb

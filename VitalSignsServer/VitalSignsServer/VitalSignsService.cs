@@ -6,17 +6,21 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using vitalsigns;
-
 namespace VitalSignsServer
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single,
                 ConcurrencyMode = ConcurrencyMode.Single)]
     class VitalSignsService : IVitalSignsService
     {
+        private Queue<string> epcQueue = new Queue<string>();
+        private Queue<long> timestampQueue = new Queue<long>();
+        private  Queue<double> phaseQueue = new Queue<double>();
+        private Queue<int> frequencyQueue = new Queue<int>();
+        private VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
         public FrequencyInfo offlineAnalyze(string fileName)
         {
             Console.WriteLine("正在离线分析文件："+fileName);
-            VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
+            
             MWCharArray filename = fileName;
             MWArray[] argsIn = new MWArray[] { filename };
             MWArray[] result = new MWArray[3];
@@ -34,7 +38,7 @@ namespace VitalSignsServer
             }
             double meanBreath = (double)(MWNumericArray)result[1];
             double meanHeartbeat = (double)(MWNumericArray)result[2];
-            FrequencyInfo frequency = new FrequencyInfo(breath, heartbeat, t, meanBreath, meanHeartbeat);
+            FrequencyInfo frequency = new FrequencyInfo(breath, heartbeat, t, meanBreath, meanHeartbeat,0);
 
             /*
             double[,] time = (double[,])result[1].ToArray();
@@ -54,7 +58,7 @@ namespace VitalSignsServer
             //throw new NotImplementedException();
         }
 
-        public void realtimeAnalyze(string[] epc,long[] timestamp, int[]phase,int[] frequency)
+        public FrequencyInfo realtimeAnalyze()
         {
             /*
             MWCellArray EPCArray = new MWCellArray(tagInfoQueue.Count, 1);
@@ -79,23 +83,69 @@ namespace VitalSignsServer
             vitalSignsExtract.vitalSignsExtract(3,ref result,argsIn);
             */
             Console.WriteLine("实时分析...");
-            MWNumericArray timeStampArray = new MWNumericArray(timestamp);
-            MWNumericArray phaseArray = new MWNumericArray(phase);
-            MWNumericArray frequencyIndex = new MWNumericArray(frequency);
-            MWCellArray EPCArray = new MWCellArray(epc.Length, 1);
+            long[] timestampArray = timestampQueue.ToArray();
+            MWNumericArray timeStampArray = timestampArray;
+            double[] phaseArray1 = phaseQueue.ToArray();
+            MWNumericArray phaseArray = phaseArray1;
+            int[] frequencyArray = frequencyQueue.ToArray();
+            MWNumericArray frequencyIndex = frequencyArray;
+            string[] epcArray = epcQueue.ToArray();
+            Console.WriteLine("array size : "+epcArray.Length);
+           MWCellArray EPCArray = new MWCellArray(epcArray.Length, 1);
             //MWNumericArray filter = 0;
             //MWNumericArray method = 1;
             //MWNumericArray T = 10;
-            for (int i=0; i < epc.Length; i++)
+            for (int i=0; i < epcArray.Length; i++)
             {
-                EPCArray[i + 1, 1] = epc[i];
+                EPCArray[i + 1, 1] = epcArray[i];
             }
+
             MWArray[] argsIn = new MWArray[] { EPCArray, timeStampArray, phaseArray, frequencyIndex, 0, 1, 10 };
             MWArray[] result = new MWArray[3];
-            VitalSignsExtract vitalSignsExtract = new VitalSignsExtract();
-            vitalSignsExtract.vitalSignsExtract(3, ref result, argsIn);
+            FrequencyInfo fre = new FrequencyInfo();
+            try
+            { 
+                vitalSignsExtract.vitalSignsExtract(3, ref result, argsIn);
+                double[,] breathAndHb = (double[,])(result[0].ToArray());
+                Console.WriteLine(breathAndHb[0,3]);
+                int fail = (int)(MWNumericArray)result[2];
+                Console.WriteLine("fail: "+fail);
+                fre.meanBreath = breathAndHb[0, 3];
+                fre.meanHeartbeat = breathAndHb[0, 4];
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                return null;
+            }
+           
 
-            
+            return fre;
         }
+
+        public void  addTagInfo(long timestamp, double phase, int frequency, string epc)
+        {
+            timestampQueue.Enqueue(timestamp);
+            phaseQueue.Enqueue(phase);
+            frequencyQueue.Enqueue(frequency);
+            epcQueue.Enqueue(epc);
+        }
+
+
+        public void removeHead()
+        {
+            timestampQueue.Dequeue();
+            phaseQueue.Dequeue();
+            frequencyQueue.Dequeue();
+            epcQueue.Dequeue();
+        }
+
+        public void cleanBuffer()
+        {
+            timestampQueue.Clear();
+            phaseQueue.Clear();
+            frequencyQueue.Clear();
+            epcQueue.Clear();
+        }
+
     }
 }
